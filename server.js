@@ -33,7 +33,7 @@ var SampleApp = function() {
         };
         var db = mongo.db("mongodb://" + process.env.OPENSHIFT_MONGODB_DB_HOST + ":" + process.env.OPENSHIFT_MONGODB_DB_PORT + "/", 
                           {username:process.env.OPENSHIFT_MONGODB_DB_USERNAME,password:process.env.OPENSHIFT_MONGODB_DB_PASSWORD,native_parser:true});
-        db.collection('contactspro').insert({"name":"David", "title":"About MongoDB"}, function(err, doc){
+        db.collection('contactspro').insert({name:"David", title:"About MongoDB"}, function(err, doc){
             if (err) {
                 console.dir(err);
                 return;
