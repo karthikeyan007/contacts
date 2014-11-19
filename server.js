@@ -33,7 +33,7 @@ var SampleApp = function() {
         };
         var db = mongo.db("mongodb://" + process.env.OPENSHIFT_MONGODB_DB_HOST + ":" + process.env.OPENSHIFT_MONGODB_DB_PORT + "/", 
                           {username:process.env.OPENSHIFT_MONGODB_DB_USERNAME,password:process.env.OPENSHIFT_MONGODB_DB_PASSWORD,native_parser:true});
-        db.collection('contactspro1').insert({"name":"David", "title":"About MongoDB"}, function(err, doc){
+        db.collection('contactspro').insert({"name":"David", "title":"About MongoDB"}, function(err, doc){
             if (err) {
                 console.dir(err);
                 return;
@@ -104,7 +104,7 @@ var SampleApp = function() {
     self.createRoutes = function() {
         self.routes = { };
 
-        self.routes['/asciimo'] = function(req, res) {
+        self.routes['data/asciimo'] = function(req, res) {
             var link = "http://i.imgur.com/kmbjB.png";
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
