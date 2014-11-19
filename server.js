@@ -2,7 +2,7 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-
+var mongo   = require('mongoskin');
 
 /**
  *  Define the sample application.
@@ -31,6 +31,8 @@ var SampleApp = function() {
             console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
             self.ipaddress = "127.0.0.1";
         };
+        var db = mongo.db("mongodb://" + process.env.OPENSHIFT_MONGODB_DB_HOST + ":" + process.env.OPENSHIFT_MONGODB_DB_PORT + "/", 
+                          {username:process.env.OPENSHIFT_MONGODB_DB_USERNAME,password:process.env.OPENSHIFT_MONGODB_DB_PASSWORD,native_parser:true});
     };
 
 
