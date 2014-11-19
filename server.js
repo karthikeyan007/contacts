@@ -24,7 +24,7 @@ var SampleApp = function() {
         //  Set the environment variables we need.
         self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
         self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-
+       
         if (typeof self.ipaddress === "undefined") {
             //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
             //  allows us to run/test the app locally.
@@ -42,7 +42,7 @@ var SampleApp = function() {
         });
     };*/
 db.open(function(err, db) {
-  var collection = db.createCollection("simple_document_insert_collection_no_safe");
+//  var collection = db.createCollection("simple_document_insert_collection_no_safe");
   // Insert a single document
   collection.insert({hello:'world_no_safe'});
 }}
