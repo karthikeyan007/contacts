@@ -42,7 +42,7 @@ var SampleApp = function() {
         });
     };*/
 db.open(function(err, db) {
-  var collection = db.collection("simple_document_insert_collection_no_safe");
+  var collection = db.createCollection("simple_document_insert_collection_no_safe");
   // Insert a single document
   collection.insert({hello:'world_no_safe'});
 }}
