@@ -48,7 +48,7 @@ self.setupVariables = function()
     };
   self.initializeDB = function(e,res) 
        {
-           res.write("mango1");
+           res.send("mango1");
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
            {
             if(err) throw err;
@@ -61,7 +61,7 @@ self.setupVariables = function()
                 console.dir(err);
                 return;
             }
- 		res.write("mongo2");
+ 		res.send("mongo2");
             console.log("Contacts Created!!!");
          });
            });
@@ -132,7 +132,7 @@ self.setupVariables = function()
         self.routes['/asciimo'] = function(req, res) {
            var link = "http://i.imgur.com/kmbjB.png";
           
-             res.write("hai");
+         //    res.write("hai");
         
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
