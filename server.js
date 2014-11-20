@@ -3,11 +3,11 @@
 var express = require('express');
 var fs      = require('fs');
 var mongo   = require('mongoskin');
-
+//server4.js
 /**
  *  Define the sample application.
  */
-var SampleApp = function() 
+var SampleApp = function() {
     //  Scope.
     var self = this;
 
@@ -22,7 +22,6 @@ var SampleApp = function()
     
 self.setupVariables = function()
  {
-//res.write(" Setup variable");
         //  Set the environment variables we need.
         self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
         self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
@@ -49,16 +48,14 @@ self.setupVariables = function()
     };
   self.initializeDB = function() 
        {
-     //      res.write("initialize");
+           
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
            {
             if(err) throw err;
             self.db = db;
-  
-          
-  self.db.collection('contactspro').insert({"sno":"hai","name":"David", "title":"About MongoDB"},function(err, doc)
+            self.db.collection('contactspro').insert({"name":"David", "title":"About MongoDB"},
+          function(err, doc)
           {
-  //res.write("collection");
             if (err)
             {
                 console.dir(err); 
@@ -67,7 +64,6 @@ self.setupVariables = function()
  	
             console.log("Contacts Created!!!");
          });
-
            });
        };
 
@@ -136,9 +132,9 @@ self.setupVariables = function()
         self.routes['/asciimo'] = function(req, res) {
            var link = "http://i.imgur.com/kmbjB.png";
           
-             res.write("hai");
+         //    res.write("hai");
         
-         //   res.send("<html><body><img src='" + link + "'></body></html>");
+            res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
         self.routes['/'] = function(req, res) {
