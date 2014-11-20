@@ -3,6 +3,8 @@
 var express = require('express');
 var fs      = require('fs');
 var mongo   = require('mongoskin');
+
+
 //server4.js
 /**
  *  Define the sample application.
@@ -207,22 +209,14 @@ self.setupVariables = function()
 	if(!jsondata)
 
 	{
-
-		out="i got no form data";
-
-	}
-
+            out="i got no form data";
+	} 
 	else
-
 	{
-
-		var json;
-
+      var json;
 		try
-
 		{
-
-			json=JSON.parse(jsondata);
+/*			json=JSON.parse(jsondata);
 
 			var types=json.types;
 
@@ -238,7 +232,7 @@ self.setupVariables = function()
 
 
 
-
+*/
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
        function(err, db)
            {
