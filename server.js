@@ -128,7 +128,9 @@ self.setupVariables = function()
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
-            var link = "http://i.imgur.com/kmbjB.png";
+          //  var link = "http://i.imgur.com/kmbjB.png";
+            var link="https://blog.openshift.com/10-reasons-openshift-is-the-best-place-to-host-your-nodejs-app/nk = ";
+        
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
