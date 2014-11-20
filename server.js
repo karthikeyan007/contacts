@@ -164,6 +164,18 @@ self.setupVariables = function()
   //contacts registration
         self.routes['/registration'] = function(req,res)
         {
+   
+   console.log("siva");
+            res.setHeader('Content-Type', 'text/html');
+           // res.send(self.cache_get('index.html') );
+           var link1 = "http://upload.wikimedia.org/wikipedia/commons/2/26/Nuvola_apps_download_manager.png";
+         res.send("<html><body><img src='" + link1 + "'></body></html>");
+
+
+
+
+
+
 
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
        function(err, db)
