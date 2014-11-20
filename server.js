@@ -44,7 +44,7 @@ self.setupVariables = function()
           {
            
             self.ipaddress = "127.0.0.1";
-          };
+          }
     };
   self.initializeDB = function() 
        {
