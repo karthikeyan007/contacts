@@ -124,7 +124,7 @@ self.setupVariables = function()
     /**
      *  Create the routing table entries + handlers for the application.
      */
-http://i.imgur.com/kmbjB.png    self.createRoutes = function() {
+    self.createRoutes = function() {
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
