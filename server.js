@@ -21,33 +21,43 @@ var SampleApp = function() {
      *  Set up server IP address and port # using env variables/defaults.
      */
  
-   self.setupVariables = function() {
+   
+  self.setupVariables = function()
+ {
         //  Set the environment variables we need.
-        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-       
-        if (typeof self.ipaddress === "undefined") {
-            //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
-            //  allows us to run/test the app locally.
-            console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
-            self.ipaddress = "127.0.0.1";
-        };
-        var db = mongo.db("mongodb://" + process.env.OPENSHIFT_MONGODB_DB_HOST + ":" + process.env.OPENSHIFT_MONGODB_DB_PORT + "/", 
-                          {username:process.env.OPENSHIFT_MONGODB_DB_USERNAME,password:process.env.OPENSHIFT_MONGODB_DB_PASSWORD,native_parser:true});
-        db.collection('contactspro').insert({name:"David", title:"About MongoDB"}, function(err, doc){
-            if (err) {
-                console.dir(err);
-                return;
+        self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
+        self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+        self.mu             = require('mu2');
+        self.mu.root        = __dirname + "/templates";
+
+        self.connection_string = '127.0.0.1:27017/YOUR_APP_NAME';
+        // if OPENSHIFT env variables are present, use the available connection info:
+        if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD)
+             {
+          self.connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+          process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+          process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+          process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+          process.env.OPENSHIFT_APP_NAME;
             }
-            console.log("Contacts Created!!!");
-        });
+
+        if (typeof self.ipaddress === "undefined")
+          {
+             console.log("siva");
+            self.ipaddress = "127.0.0.1";
+          };
     };
-/*db.open(function(err, db) {
-//  var collection = db.createCollection("simple_document_insert_collection_no_safe");
-  // Insert a single document
-  collection.insert({hello:'world_no_safe'});
-}}
-*/
+
+    self.initializeDB = function() 
+       {
+        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
+           {
+            if(err) throw err;
+            self.db = db;
+           });
+       };
+    
+
 
     /**
      *  Populate the cache.
