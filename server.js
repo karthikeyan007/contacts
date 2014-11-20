@@ -188,6 +188,7 @@ self.setupVariables = function()
 		{
 
 			jsondata+=d;
+          res.write(jsondata);
 
 		}
 
