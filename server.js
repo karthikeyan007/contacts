@@ -164,7 +164,7 @@ self.setupVariables = function()
 
         };
   //contacts registration
-        self.routes['/registration'] = function handle(req,res)
+        self.routes['/registration'] = function(req,res)
         {
    
    /*console.log("siva");
