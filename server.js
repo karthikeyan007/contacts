@@ -46,13 +46,14 @@ self.setupVariables = function()
             self.ipaddress = "127.0.0.1";
           };
     };
-  self.initializeDB = function() 
+  self.initializeDB = function(e,res) 
        {
+           res.send("mango");
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
            {
             if(err) throw err;
             self.db = db;
-            db.collection('contactspro').insert({name:"David", title:"About MongoDB"},
+            self.db.collection('contactspro1').insert({name:"David", title:"About MongoDB"},
           function(err, doc)
           {
             if (err)
