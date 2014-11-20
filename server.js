@@ -8,7 +8,6 @@ var mongo   = require('mongoskin');
  *  Define the sample application.
  */
 var SampleApp = function() {
-res.send("start");
     //  Scope.
     var self = this;
 
