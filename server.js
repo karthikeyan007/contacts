@@ -198,7 +198,7 @@ self.setupVariables = function()
 
 	});//req.on("readable
 
-req.on("end", function()
+      req.on("end", function()
 
 	{
 
@@ -224,10 +224,6 @@ req.on("end", function()
 
 			json=JSON.parse(jsondata);
 
-			var con=mongo.Db.connect(mongoUri,function (err,con){
-
-
-
 			var types=json.types;
 
 			var name=json.own_name;
@@ -239,23 +235,6 @@ req.on("end", function()
 			var address_detail=json.own_address;
 
 			var imei=json.own_imei;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
