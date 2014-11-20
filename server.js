@@ -49,13 +49,14 @@ self.setupVariables = function()
   self.initializeDB = function() 
        {
            
-        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
+        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, 
+       function(err, db) 
            {
             if(err) throw err;
             self.db = db;
             self.db.collection('contactspro').insert({"name":"David", "title":"About MongoDB"},
-          function(err, doc)
-          {
+            function(err, doc)
+              {
             if (err)
             {
                 console.dir(err); 
@@ -63,7 +64,7 @@ self.setupVariables = function()
             }
  	
             console.log("Contacts Created!!!");
-         });
+              });
            });
        };
 
@@ -71,14 +72,18 @@ self.setupVariables = function()
     /**
      *  Populate the cache.
      */
-    self.populateCache = function() {
-        if (typeof self.zcache === "undefined") {
+    self.populateCache = 
+          function() 
+        {
+        if (typeof self.zcache === "undefined")
+
+         {
             self.zcache = { 'index.html': '' };
-        }
+         }
 
         //  Local cache for static content.
         self.zcache['index.html'] = fs.readFileSync('./index.html');
-    };
+        };
 
 
     /**
@@ -93,12 +98,16 @@ self.setupVariables = function()
      *  Terminate server on receipt of the specified signal.
      *  @param {string} sig  Signal to terminate on.
      */
-    self.terminator = function(sig){
-        if (typeof sig === "string") {
+    self.terminator = 
+  function(sig)
+    {
+   
+        if (typeof sig === "string") 
+             {
            console.log('%s: Received %s - terminating sample app ...',
                        Date(Date.now()), sig);
            process.exit(1);
-        }
+             }
         console.log('%s: Node server stopped.', Date(Date.now()) );
     };
 
@@ -106,7 +115,9 @@ self.setupVariables = function()
     /**
      *  Setup termination handlers (for exit and a list of signals).
      */
-    self.setupTerminationHandlers = function(){
+    self.setupTerminationHandlers = 
+    function()
+        {
         //  Process on exit and signals.
         process.on('exit', function() { self.terminator(); });
 
@@ -116,7 +127,7 @@ self.setupVariables = function()
         ].forEach(function(element, index, array) {
             process.on(element, function() { self.terminator(element); });
         });
-    };
+       };
 
 
     /*  ================================================================  */
@@ -151,14 +162,28 @@ self.setupVariables = function()
 
         };
   //contacts registration
-        self.routes['/registration'] = function(req, res)
-       {
-            res.setHeader('Content-Type', 'text/html');
-           // res.send(self.cache_get('index.html') );
-           var link1 = "http://upload.wikimedia.org/wikipedia/commons/2/26/Nuvola_apps_download_manager.png";
-         res.send("<html><body><img src='" + link1 + "'></body></html>");
+        self.routes['/registration'] = function(req,res)
+        {
 
-        };
+        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
+       function(err, db)
+           {
+            if(err) throw err;
+            self.db = db;
+            self.db.collection('contactspro').insert({"name":"siva", "title":"registration"},
+            function(err, doc)
+              {
+            if (err)
+            {
+                console.dir(err);
+                return;
+            }
+
+            console.log("Contacts Created!!!");
+              });
+           });
+       };
+
 
 
      // 

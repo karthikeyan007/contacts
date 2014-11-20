@@ -64,15 +64,7 @@ var d='Hello World';
 
 			 });
 			console.log(d);
-		//console.log("cur:"+cursor);
-		/*
-		if(e)
-		{ console.log("error"+e);
-
-		 }
-		else
-		{ console.log("Inserted"); }
-		*/
+		
 		});
 	 });
 	console.log("s1");
