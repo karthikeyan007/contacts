@@ -27,7 +27,7 @@ self.setupVariables = function()
         self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
         self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
    
-        self.mu             = require('mu2');
+//        self.mu             = require('mu2');
 //        self.mu.root        = __dirname + "/templates";
 
         self.connection_string = '127.0.0.1:27017/YOUR_APP_NAME';
