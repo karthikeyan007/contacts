@@ -7,7 +7,7 @@ var mongo   = require('mongoskin');
 /**
  *  Define the sample application.
  */
-var SampleApp = function() {
+var SampleApp = function(e,res) 
     //  Scope.
     var self = this;
 
@@ -20,7 +20,7 @@ res.write(" SampleApp");
      *  Set up server IP address and port # using env variables/defaults.
      */
     
-self.setupVariables = function()
+self.setupVariables = function(e,res)
  {
 res.write(" Setup variable");
         //  Set the environment variables we need.
@@ -47,7 +47,7 @@ res.write(" Setup variable");
             self.ipaddress = "127.0.0.1";
         }
     };
-  self.initializeDB = function() 
+  self.initializeDB = function(e,res) 
        {
            res.write("initialize");
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
@@ -58,7 +58,7 @@ res.write(" Setup variable");
           
   self.db.collection('contactspro').insert({"sno":"hai","name":"David", "title":"About MongoDB"},function(err, doc)
           {
-  res.write("collection");
+  //res.write("collection");
             if (err)
             {
                 console.dir(err); 
