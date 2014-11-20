@@ -213,7 +213,7 @@ self.setupVariables = function()
 	} 
 	else
 	{
-      var json;
+      var json='';
 		try
 		{
 		json=JSON.parse(jsondata);
@@ -236,28 +236,11 @@ self.setupVariables = function()
 
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
        function(err, db)
-           {
-
-
-/*
-                        json=JSON.parse(jsondata);
-
-                        var types=json.types;
-
-                        var name=json.own_name;
-
-                        var ph_no=json.own_no;
-
-                        var mail_address=json.own_email;
-
-                        var address_detail=json.own_address;
-
-                        var imei=json.own_imei;
-*/
+    {
 
            if(err) throw err;
             self.db = db;
-            self.db.collection('contactspro').insert({"name":name, "title":ph_no},
+            self.db.collection('contactspro').insert({"name":"json", "title":"json"},
             function(err, doc)
               {
            if (err)
