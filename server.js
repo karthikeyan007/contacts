@@ -7,7 +7,8 @@ var mongo   = require('mongoskin');
 /**
  *  Define the sample application.
  */
-var SampleApp = function() {
+var SampleApp = function()
+ {
 
     //  Scope.
     var self = this;
@@ -56,7 +57,7 @@ var SampleApp = function() {
             self.db = db;
            });
        };
-    
+    };//it may delete
 
 
     /**
@@ -165,13 +166,15 @@ var SampleApp = function() {
     /**
      *  Start the server (starts up the sample application).
      */
-    self.start = function() {
+    self.start = function()
+     {  
         //  Start the app on the specific interface (and port).
-        self.app.listen(self.port, self.ipaddress, function() {
+        self.app.listen(self.port, self.ipaddress, function() 
+         {
             console.log('%s: Node server started on %s:%d ...',
                         Date(Date.now() ), self.ipaddress, self.port);
         });
-    };
+     };
 
 };   /*  Sample Application.  */
 
