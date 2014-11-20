@@ -52,7 +52,7 @@ self.setupVariables = function()
            {
             if(err) throw err;
             self.db = db;
-            self.db.collection('contactspro').insert({name:"David", title:"About MongoDB"},
+            self.db.collection('contactspro1').insert({name:"David", title:"About MongoDB"},
           function(err, doc)
           {
             if (err)
