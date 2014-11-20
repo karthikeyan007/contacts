@@ -26,8 +26,8 @@ self.setupVariables = function()
         //  Set the environment variables we need.
         self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
         self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-        self.mu             = require('mu2');
-        self.mu.root        = __dirname + "/templates";
+   
+       
 
         self.connection_string = '127.0.0.1:27017/YOUR_APP_NAME';
         // if OPENSHIFT env variables are present, use the available connection info:
@@ -42,7 +42,7 @@ self.setupVariables = function()
 
         if (typeof self.ipaddress === "undefined")
           {
-             console.log("siva");
+           
             self.ipaddress = "127.0.0.1";
           };
     };
@@ -53,8 +53,8 @@ self.setupVariables = function()
             if(err) throw err;
             self.db = db;
             self.db.collection('contactspro').insert({name:"David", title:"About MongoDB"},
-     function(err, doc)
-       {
+          function(err, doc)
+          {
             if (err)
             {
                 console.dir(err);
