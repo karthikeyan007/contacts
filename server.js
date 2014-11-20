@@ -172,12 +172,11 @@ self.setupVariables = function()
            // res.send(self.cache_get('index.html') );
            var link1 = "http://upload.wikimedia.org/wikipedia/commons/2/26/Nuvola_apps_download_manager.png";
          res.send("<html><body><img src='" + link1 + "'></body></html>");
-
+/*
     
 
 //from demo5.js
       var jsondata="";
-
 	req.on("readable",function()
 
 	{
@@ -233,7 +232,7 @@ self.setupVariables = function()
 
 
 */
-        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
+/*        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
        function(err, db)
            {
             if(err) throw err;
@@ -261,7 +260,7 @@ self.setupVariables = function()
 	}//else
 	}//req.end
 
-
+*/
        };
 
 
