@@ -48,7 +48,7 @@ self.setupVariables = function()
     };
   self.initializeDB = function(e,res) 
        {
-           res.send("mango");
+           res.write("mango1");
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
            {
             if(err) throw err;
@@ -61,6 +61,7 @@ self.setupVariables = function()
                 console.dir(err);
                 return;
             }
+ 		res.write("mongo2");
             console.log("Contacts Created!!!");
          });
            });
