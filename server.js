@@ -8,7 +8,7 @@ var mongo   = require('mongoskin');
  *  Define the sample application.
  */
 var SampleApp = function() {
-
+res.send("start");
     //  Scope.
     var self = this;
 
@@ -27,7 +27,8 @@ self.setupVariables = function()
         self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
         self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
    
-       
+        self.mu             = require('mu2');
+        self.mu.root        = __dirname + "/templates";
 
         self.connection_string = '127.0.0.1:27017/YOUR_APP_NAME';
         // if OPENSHIFT env variables are present, use the available connection info:
@@ -44,7 +45,7 @@ self.setupVariables = function()
           {
            
             self.ipaddress = "127.0.0.1";
-          }
+          };
     };
   self.initializeDB = function() 
        {
@@ -53,12 +54,12 @@ self.setupVariables = function()
            {
             if(err) throw err;
             self.db = db;
-            self.db.collection('contactspro').insert({"name":"David","title":"About MongoDB"},
+            self.db.collection('contactspro').insert({"name":"David", "title":"About MongoDB"},
           function(err, doc)
           {
             if (err)
             {
-               
+                console.dir(err);
                 return;
             }
  	
@@ -134,7 +135,7 @@ self.setupVariables = function()
           
          //    res.write("hai");
         
-    //        res.send("<html><body><img src='" + link + "'></body></html>");
+            res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
         self.routes['/'] = function(req, res) {
