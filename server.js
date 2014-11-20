@@ -171,6 +171,89 @@ self.setupVariables = function()
            var link1 = "http://upload.wikimedia.org/wikipedia/commons/2/26/Nuvola_apps_download_manager.png";
          res.send("<html><body><img src='" + link1 + "'></body></html>");
 
+    
+
+//from demo5.js
+      var jsondata="";
+
+	req.on("readable",function()
+
+	{
+
+		var d=req.read();
+
+		if(typeof d=='string')
+
+		{
+
+			jsondata+=d;
+
+		}
+
+		else if(typeof d=='object' && d instanceof Buffer){
+
+			jsondata+=d;
+
+		}
+
+	});//req.on("readable
+
+req.on("end", function()
+
+	{
+
+	var out='';
+
+	if(!jsondata)
+
+	{
+
+		out="i got no form data";
+
+	}
+
+	else
+
+	{
+
+		var json;
+
+		try
+
+		{
+
+			json=JSON.parse(jsondata);
+
+			var con=mongo.Db.connect(mongoUri,function (err,con){
+
+
+
+			var types=json.types;
+
+			var name=json.own_name;
+
+			var ph_no=json.own_no;
+
+			var mail_address=json.own_email;
+
+			var address_detail=json.own_address;
+
+			var imei=json.own_imei;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -194,6 +277,18 @@ self.setupVariables = function()
             console.log("Contacts Created!!!");
               });
            });
+
+	}//try
+      catch(e)
+
+	{
+
+	}
+
+	}//else
+	}//req.end
+
+
        };
 
 
