@@ -128,8 +128,8 @@ http://i.imgur.com/kmbjB.png    self.createRoutes = function() {
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
-          //  var link = "http://i.imgur.com/kmbjB.png";
-           var link = "http://i.imgur.com/kmbjB1.png";
+           var link = "http://i.imgur.com/kmbjB.png";
+          
 
         
             res.send("<html><body><img src='" + link + "'></body></html>");
