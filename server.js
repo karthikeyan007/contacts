@@ -198,7 +198,7 @@ self.setupVariables = function()
 		}
 
 	});//req.on("readable
-/*
+
       req.on("end", function()
 
 	{
@@ -215,7 +215,7 @@ self.setupVariables = function()
       var json;
 		try
 		{
-/*			json=JSON.parse(jsondata);
+			json=JSON.parse(jsondata);
 
 			var types=json.types;
 
@@ -231,8 +231,8 @@ self.setupVariables = function()
 
 
 
-*/
-/*        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
+
+        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
        function(err, db)
            {
             if(err) throw err;
@@ -258,9 +258,11 @@ self.setupVariables = function()
 	}
 
 	}//else
-	}//req.end
 
-*/
+     // res.end(out);
+	});//req.end
+
+
        };
 
 
