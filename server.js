@@ -7,8 +7,7 @@ var mongo   = require('mongoskin');
 /**
  *  Define the sample application.
  */
-var SampleApp = function()
- {
+var SampleApp = function() {
 
     //  Scope.
     var self = this;
@@ -21,44 +20,34 @@ var SampleApp = function()
     /**
      *  Set up server IP address and port # using env variables/defaults.
      */
- 
-   
-  self.setupVariables = function()
- {
+    self.setupVariables = function()
+     {
         //  Set the environment variables we need.
-        self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
-        self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-        self.mu             = require('mu2');
-        self.mu.root        = __dirname + "/templates";
+        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
+        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
-        self.connection_string = '127.0.0.1:27017/YOUR_APP_NAME';
-        // if OPENSHIFT env variables are present, use the available connection info:
-        if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD)
-             {
-          self.connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-          process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-          process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-          process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-          process.env.OPENSHIFT_APP_NAME;
-            }
-
-        if (typeof self.ipaddress === "undefined")
-          {
-             console.log("siva");
+        if (typeof self.ipaddress === "undefined") {
+            //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
+            //  allows us to run/test the app locally.
+            console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
             self.ipaddress = "127.0.0.1";
-          };
-    };
-
-    self.initializeDB = function() 
-       {
-        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
-           {
-            if(err) throw err;
-            self.db = db;
-           });
-       };
-    };//it may delete
-
+        };
+        var db = mongo.db("mongodb://" + process.env.OPENSHIFT_MONGODB_DB_HOST + ":" + process.env.OPENSHIFT_MONGODB_DB_PORT + "/", 
+                          {username:process.env.OPENSHIFT_MONGODB_DB_USERNAME,password:process.env.OPENSHIFT_MONGODB_DB_PASSWORD,native_parser:true});
+        db.collection('contactspro').insert({name:"David", title:"About MongoDB"}, function(err, doc){
+            if (err) {
+                console.dir(err);
+                return;
+            }
+            console.log("Contacts Created!!!");
+         });
+         };
+        /*db.open(function(err, db) {
+        var collection = db.createCollection("simple_document_insert_collection_no_safe");
+        // Insert a single document
+        collection.insert({hello:'world_no_safe'});
+        }}
+        */
 
     /**
      *  Populate the cache.
@@ -122,9 +111,7 @@ var SampleApp = function()
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
-//            var link = "http://i.imgur.com/kmbjB.png";
- var link = "http://http://en.wikipedia.org/wiki/Taj_Mahal";
-
+            var link = "http://i.imgur.com/kmbjB.png";
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
@@ -166,15 +153,13 @@ var SampleApp = function()
     /**
      *  Start the server (starts up the sample application).
      */
-    self.start = function()
-     {  
+    self.start = function() {
         //  Start the app on the specific interface (and port).
-        self.app.listen(self.port, self.ipaddress, function() 
-         {
+        self.app.listen(self.port, self.ipaddress, function() {
             console.log('%s: Node server started on %s:%d ...',
                         Date(Date.now() ), self.ipaddress, self.port);
         });
-     };
+    };
 
 };   /*  Sample Application.  */
 
