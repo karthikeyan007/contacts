@@ -134,7 +134,7 @@ self.setupVariables = function()
           
          //    res.write("hai");
         
-            res.send("<html><body><img src='" + link + "'></body></html>");
+    //        res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
         self.routes['/'] = function(req, res) {
