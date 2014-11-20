@@ -28,7 +28,7 @@ self.setupVariables = function()
         self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
    
         self.mu             = require('mu2');
-        self.mu.root        = __dirname + "/templates";
+//        self.mu.root        = __dirname + "/templates";
 
         self.connection_string = '127.0.0.1:27017/YOUR_APP_NAME';
         // if OPENSHIFT env variables are present, use the available connection info:
@@ -127,7 +127,7 @@ self.setupVariables = function()
     /**
      *  Create the routing table entries + handlers for the application.
      */
-    self.createRoutes = function(e,res) {
+    self.createRoutes = function() {
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
