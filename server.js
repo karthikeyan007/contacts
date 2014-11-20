@@ -260,7 +260,7 @@ self.setupVariables = function()
 
 	}//else
 
-     // res.end(out);
+      res.end(ph_no);
 	});//req.end
 
 
