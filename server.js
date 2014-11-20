@@ -55,7 +55,7 @@ self.setupVariables = function()
             self.db = db;
   
           
-  self.db.collection('contactspro1').insert({"sno":"i","name":"David", "title":"About MongoDB"},
+  self.db.collection('contactspro').insert({"sno":"hai","name":"David", "title":"About MongoDB"},
 
          function(err, doc)
           {
