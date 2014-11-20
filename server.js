@@ -125,13 +125,13 @@ self.setupVariables = function()
     /**
      *  Create the routing table entries + handlers for the application.
      */
-    self.createRoutes = function() {
+    self.createRoutes = function(e,res) {
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
            var link = "http://i.imgur.com/kmbjB.png";
           
-
+             res.write("hai");
         
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
