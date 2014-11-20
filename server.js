@@ -57,7 +57,7 @@ self.setupVariables = function()
 for(var i=0;i<10;i++)
 {          
   self.db.collection('contactspro1').insert({"sno":i,"name":"David", "title":"About MongoDB"},
-} 
+
          function(err, doc)
           {
             if (err)
@@ -68,6 +68,7 @@ for(var i=0;i<10;i++)
  	
             console.log("Contacts Created!!!");
          });
+}
            });
        };
 
