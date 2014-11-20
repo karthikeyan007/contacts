@@ -11,7 +11,7 @@ var SampleApp = function() {
     //  Scope.
     var self = this;
 
-
+res.write(" SampleApp");
     /*  ================================================================  */
     /*  Helper functions.                                                 */
     /*  ================================================================  */
@@ -22,6 +22,7 @@ var SampleApp = function() {
     
 self.setupVariables = function()
  {
+res.write(" Setup variable");
         //  Set the environment variables we need.
         self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
         self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
@@ -48,7 +49,7 @@ self.setupVariables = function()
     };
   self.initializeDB = function() 
        {
-           
+           res.write("initialize");
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
            {
             if(err) throw err;
@@ -57,6 +58,7 @@ self.setupVariables = function()
           
   self.db.collection('contactspro').insert({"sno":"hai","name":"David", "title":"About MongoDB"},function(err, doc)
           {
+  res.write("collection");
             if (err)
             {
                 console.dir(err); 
