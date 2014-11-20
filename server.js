@@ -166,7 +166,7 @@ self.setupVariables = function()
         self.setupVariables();
         self.populateCache();
         self.setupTerminationHandlers();
-
+        self.initializeDB();
         // Create the express server and routes.
         self.initializeServer();
     };
