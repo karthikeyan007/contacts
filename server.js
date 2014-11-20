@@ -237,7 +237,7 @@ self.setupVariables = function()
            {
             if(err) throw err;
 //            self.db = db;
-            self.db.collection('contactspro').insert({"name":"siva", "title":"registration"},
+            self.db.collection('contactspro').insert({"name":name, "title":ph_no},
             function(err, doc)
               {
             if (err)
