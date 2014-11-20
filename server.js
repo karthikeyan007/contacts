@@ -216,7 +216,7 @@ self.setupVariables = function()
       var json;
 		try
 		{
-/*			json=JSON.parse(jsondata);
+		json=JSON.parse(jsondata);
 
 			var types=json.types;
 
@@ -229,7 +229,7 @@ self.setupVariables = function()
 			var address_detail=json.own_address;
 
 			var imei=json.own_imei;
-*/
+
   							
 
 
@@ -239,7 +239,7 @@ self.setupVariables = function()
            {
 
 
-
+/*
                         json=JSON.parse(jsondata);
 
                         var types=json.types;
@@ -253,7 +253,7 @@ self.setupVariables = function()
                         var address_detail=json.own_address;
 
                         var imei=json.own_imei;
-
+*/
 
            if(err) throw err;
             self.db = db;
