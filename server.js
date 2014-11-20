@@ -141,6 +141,15 @@ self.setupVariables = function()
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
+         self.routes['/siva'] = function(req, res) {
+            res.setHeader('Content-Type', 'text/html');
+           // res.send(self.cache_get('index.html') );
+           var link1 = "http://google.com";
+
+         res.send("<html><body><img src='" + link1 + "'></body></html>");
+
+        };
+
     };
 
 
