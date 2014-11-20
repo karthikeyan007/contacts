@@ -111,7 +111,9 @@ var SampleApp = function() {
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
-            var link = "http://i.imgur.com/kmbjB.png";
+//            var link = "http://i.imgur.com/kmbjB.png";
+ var link = "http://http://en.wikipedia.org/wiki/Taj_Mahal";
+
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
