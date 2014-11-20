@@ -28,7 +28,8 @@
     "express": "~3.4.4",
     "mongoskin": ">= 1.4.4",
     "dateformat":">= 1.0.8",
-    "mongodb":">= 1.2.0"
+    "mongodb":">= 1.2.0",
+    "jsonfile":">=2.0.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],
