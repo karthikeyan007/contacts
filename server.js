@@ -20,11 +20,16 @@ var SampleApp = function() {
     /**
      *  Set up server IP address and port # using env variables/defaults.
      */
-    self.setupVariables = function()
-     {
-          self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
-          self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-          self.connection_string = '127.0.0.1:27017/YOUR_APP_NAME';
+    
+self.setupVariables = function()
+ {
+        //  Set the environment variables we need.
+        self.ipaddress      = process.env.OPENSHIFT_NODEJS_IP;
+        self.port           = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+        self.mu             = require('mu2');
+        self.mu.root        = __dirname + "/templates";
+
+        self.connection_string = '127.0.0.1:27017/YOUR_APP_NAME';
         // if OPENSHIFT env variables are present, use the available connection info:
         if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD)
              {
@@ -36,23 +41,22 @@ var SampleApp = function() {
             }
 
         if (typeof self.ipaddress === "undefined")
-           {
+          {
              console.log("siva");
             self.ipaddress = "127.0.0.1";
-           };
+          };
     };
-
-    self.initializeDB = function() 
+  self.initializeDB = function() 
        {
-         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, 
-        function(err, db) 
+        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
            {
             if(err) throw err;
             self.db = db;
-            self.db.collection('contactspro').insert({name:"David", title:"About MongoDB"}, 
-       function(err, doc)
-           {
-            if (err) {
+            self.db.collection('contactspro').insert({name:"David", title:"About MongoDB"},
+     function(err, doc)
+       {
+            if (err)
+            {
                 console.dir(err);
                 return;
             }
@@ -60,9 +64,7 @@ var SampleApp = function() {
          });
            });
        };
-        
-         
-     
+
 
     /**
      *  Populate the cache.
