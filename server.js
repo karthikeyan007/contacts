@@ -46,22 +46,22 @@ self.setupVariables = function()
             self.ipaddress = "127.0.0.1";
           };
     };
-  self.initializeDB = function(e,res) 
+  self.initializeDB = function() 
        {
-           res.send("mango1");
+           
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
            {
             if(err) throw err;
             self.db = db;
-            self.db.collection('contactspro1').insert({name:"David", title:"About MongoDB"},
+            self.db.collection('contactspro').insert({"name":"David","title":"About MongoDB"},
           function(err, doc)
           {
             if (err)
             {
-                console.dir(err);
+               
                 return;
             }
- 		res.send("mongo2");
+ 	
             console.log("Contacts Created!!!");
          });
            });
