@@ -3,11 +3,11 @@
 var express = require('express');
 var fs      = require('fs');
 var mongo   = require('mongoskin');
-//server4.js
+
 /**
  *  Define the sample application.
  */
-var SampleApp = function(e,res) 
+var SampleApp = function() 
     //  Scope.
     var self = this;
 
@@ -20,7 +20,7 @@ var SampleApp = function(e,res)
      *  Set up server IP address and port # using env variables/defaults.
      */
     
-self.setupVariables = function(e,res)
+self.setupVariables = function()
  {
 //res.write(" Setup variable");
         //  Set the environment variables we need.
@@ -47,7 +47,7 @@ self.setupVariables = function(e,res)
             self.ipaddress = "127.0.0.1";
         }
     };
-  self.initializeDB = function(e,res) 
+  self.initializeDB = function() 
        {
      //      res.write("initialize");
         require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
