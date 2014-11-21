@@ -182,7 +182,7 @@ self.setupVariables = function()
 	{
 
 	        res.write("req.on redable");
-  //      	var d=req.read();
+         	var d=req.read();
  
 		if(typeof d=='string')
 
@@ -195,7 +195,7 @@ self.setupVariables = function()
 
 		else if(typeof d=='object' && d instanceof Buffer){
 
-//		jsondata+=d;
+		jsondata+=d;
 
 		}
 
@@ -206,10 +206,10 @@ self.setupVariables = function()
 	{
        
             res.write("req.on end");
-            var d=req.read();
-            jsondata+=d;
+  //          var d=req.read();
+  //         jsondata+=d;
            var a='2';
-            res.write(a);
+            res.write(d);
           // res.send("req on end  send"); 
            res.write("req.on end 2");
             var out='';
