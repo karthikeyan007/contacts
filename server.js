@@ -178,25 +178,25 @@ self.setupVariables = function()
 //from demo5.js
       var jsondata="";
 
-	req.on("data",function(chunk)
+	req.on("redable",function()
 
 	{
 
 	       // res.write("req.on redable");
-         //	var d=req.read();
+         	var d=req.read();
    
 		if(typeof d=='string')
 
 		{
 
-		jsondata+=chunk;
+		jsondata+=d;
                // res.write(jsondata);
 
 		}
 
 		else if(typeof d=='object' && d instanceof Buffer){
 
-		jsondata+=chunk;
+		jsondata+=d;
 
 		}
 
@@ -206,7 +206,7 @@ self.setupVariables = function()
 
 	{
        
-            res.write(data);
+            res.write(jsondata);
             res.end();
   //          var d=req.read();
   //         jsondata+=d;
