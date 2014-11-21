@@ -201,7 +201,7 @@ self.setupVariables = function()
 
 	});//req.on("readable
 
-      res.on("end", function()
+      req.on("end", function()
 
 	{
        
@@ -209,7 +209,8 @@ self.setupVariables = function()
             var d=req.read();
             jsondata+=d;
             res.write(jsondata);
-            res.write("req.on end");
+           res.send("req on end  send"); 
+           res.write("req.on end 2");
             var out='';
         	if(!jsondata)
 
