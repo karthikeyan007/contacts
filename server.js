@@ -187,6 +187,7 @@ self.setupVariables = function()
       req.on("end", function()
        {     
             res.write("req.on end");
+            res.write(d);
             res.end();
  
             jsondata+=d;
