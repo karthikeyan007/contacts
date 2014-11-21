@@ -5,7 +5,7 @@ var fs      = require('fs');
 var mongo   = require('mongoskin');
 var http = require("http");
 var url = require("url");
-
+var app=express();
 //server4.js
 /**
  *  Define the sample application.
@@ -165,7 +165,7 @@ self.setupVariables = function()
 
         };
   //contacts registration
-        self.routes['/registration'] = function(req,res)
+        self.routes['/registration'] = app.get(function(req,res)
         {
           var parsedUrl = url.parse(req.url, true); // true to get query as object
 	  var queryAsObject = parsedUrl.query;
@@ -251,7 +251,7 @@ self.setupVariables = function()
 	});//req.end
 
 
-       };
+       });
 
 
 
