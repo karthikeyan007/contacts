@@ -31,7 +31,8 @@
     "mongodb":">= 1.2.0",
     "jsonfile":">=2.0.0",
     "request":">=2.48.0",
-    "url":">=0.10.1"
+    "url":">=0.10.1",
+    "jsonify":">=1.0.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],
