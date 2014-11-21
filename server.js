@@ -201,7 +201,7 @@ self.setupVariables = function()
 
 	});//req.on("readable
 
-      req.on("end", function()
+      res.on("end", function()
 
 	{
        
