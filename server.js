@@ -167,54 +167,30 @@ self.setupVariables = function()
         self.routes['/registration'] = function(req,res)
         {
            res.write("registration");
-   /*console.log("siva");
-            res.setHeader('Content-Type', 'text/html');
-           // res.send(self.cache_get('index.html') );
-           var link1 = "http://upload.wikimedia.org/wikipedia/commons/2/26/Nuvola_apps_download_manager.png";
-         res.send("<html><body><img src='" + link1 + "'></body></html>");
-*/
-    
+  
+   	    var jsondata="";
 
-//from demo5.js
-      var jsondata="";
-
-	req.on("data",function(d)
-
-	{
-
-	       // res.write("req.on redable");
-         	//var d=req.read();
-                  
-   
-		if(typeof d=='string')
-
-		{
-
+		req.on("data",function(d)
+		{  res.write("req.on data");
+          	  //var d=req.read();
+         	 if(typeof d=='string')
+                {
 		jsondata+=d;
-               // res.write(jsondata);
-
-		}
-
-		else if(typeof d=='object' && d instanceof Buffer){
-
-		jsondata+=d;
-
-		}
+              	}
+		else if(typeof d=='object' && d instanceof Buffer)
+               {
+                jsondata+=d;
+	       }
                 res.write(d);
-	});//req.on("readable
+		});//req.on("readable
 
       req.on("end", function()
-
-	{
-       
+       {     
             res.write(jsondata);
             res.end();
-  //          var d=req.read();
-  //         jsondata+=d;
-           var a='2';
-            res.write(d);
-          // res.send("req on end  send"); 
-           res.write("req.on end 2");
+ 
+            jsondata+=d;
+            res.write("req.on end 2");
             var out='';
         	if(!jsondata)
 
@@ -232,18 +208,12 @@ self.setupVariables = function()
 		var name=json.own_name;
 		var ph_no=json.own_no;
 		var mail_address=json.own_email;
-
 		var address_detail=json.own_address;
+  		var imei=json.own_imei;
 
-			var imei=json.own_imei;
-
-  							
-
-
-
-        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
+      require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
        function(err, db)
-    {
+        {
 
            if(err) throw err;
             self.db = db;
