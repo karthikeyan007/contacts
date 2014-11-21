@@ -177,11 +177,11 @@ self.setupVariables = function()
 
 //from demo5.js
       var jsondata="";
-	req.on("readable",function()
+	req.on("readable",function(req,res)
 
 	{
 
-	        res.write("req.on");
+	        res.write("req.on redable");
         	var d=req.read();
  
 		if(typeof d=='string')
@@ -201,11 +201,12 @@ self.setupVariables = function()
 
 	});//req.on("readable
 
-      req.on("end", function()
+      req.on("end", function(req,res)
 
 	{
-
+       
       res.write("req.on end");
+          res.write(jsondata);
 
 	var out='';
 
