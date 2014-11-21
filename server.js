@@ -168,7 +168,7 @@ self.setupVariables = function()
         {
     		var a=req.read();
           res.write("regi");
-          res.write(a);
+          req.write(a);
   
    	    var jsondata="";
 
