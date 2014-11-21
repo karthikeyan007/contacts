@@ -208,8 +208,9 @@ self.setupVariables = function()
             res.write("req.on end");
             var d=req.read();
             jsondata+=d;
-            res.write(jsondata);
-           res.send("req on end  send"); 
+           var a='2';
+            res.write(a);
+          // res.send("req on end  send"); 
            res.write("req.on end 2");
             var out='';
         	if(!jsondata)
