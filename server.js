@@ -3,7 +3,8 @@
 var express = require('express');
 var fs      = require('fs');
 var mongo   = require('mongoskin');
-
+var http = require("http");
+var url = require("url");
 
 //server4.js
 /**
@@ -166,9 +167,16 @@ self.setupVariables = function()
   //contacts registration
         self.routes['/registration'] = function(req,res)
         {
-    		var a=req.read();
-          res.write("regi");
-          res.write(a);
+          var parsedUrl = url.parse(req.url, true); // true to get query as object
+	  var queryAsObject = parsedUrl.query;
+
+  	res.write(JSON.stringify(queryAsObject));
+	res.write("regi");
+	  res.end(JSON.stringify(queryAsObject));
+
+
+
+           
   
    	    var jsondata="";
 
