@@ -5,7 +5,7 @@ var fs      = require('fs');
 var mongo   = require('mongoskin');
 var http = require("http");
 var url = require("url");
-var app=express();
+//var app=express();
 //server4.js
 /**
  *  Define the sample application.
@@ -171,8 +171,11 @@ self.setupVariables = function()
 	  var queryAsObject = parsedUrl.query;
 
   	res.write(parsedUrl);
+        res.write(queryAsobject);
+
 	res.write("regi");
-	  res.end(JSON.stringify(queryAsObject));
+        res.end();
+//	  res.end(JSON.stringify(queryAsObject));
      
    	    var jsondata="";
 
