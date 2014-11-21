@@ -181,8 +181,9 @@ self.setupVariables = function()
 
 	{
 
-		var d=req.read();
-
+	        res.write("req.on");
+        	var d=req.read();
+ 
 		if(typeof d=='string')
 
 		{
@@ -203,6 +204,8 @@ self.setupVariables = function()
       req.on("end", function()
 
 	{
+
+      res.write("req.on end");
 
 	var out='';
 
