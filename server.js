@@ -182,7 +182,7 @@ self.setupVariables = function()
 	{
 
 	        res.write("req.on redable");
-        	var d=req.read();
+  //      	var d=req.read();
  
 		if(typeof d=='string')
 
@@ -195,7 +195,7 @@ self.setupVariables = function()
 
 		else if(typeof d=='object' && d instanceof Buffer){
 
-		jsondata+=d;
+//		jsondata+=d;
 
 		}
 
@@ -206,32 +206,30 @@ self.setupVariables = function()
 	{
        
             res.write("req.on end");
+            var d=req.read();
+            jsondata+=d;
             res.write(jsondata);
             res.write("req.on end");
+            var out='';
 
-	var out='';
+        	if(!jsondata)
 
-	if(!jsondata)
-
-	{
-            out="i got no form data";
-	} 
-	else
-	{
-      var json='';
+      		{
+        	    out="i got no form data";
+		} 
+		else
+		{
+     		 var json='';
 		try
 		{
 		json=JSON.parse(jsondata);
 
-			var types=json.types;
+		var types=json.types;
+		var name=json.own_name;
+		var ph_no=json.own_no;
+		var mail_address=json.own_email;
 
-			var name=json.own_name;
-
-			var ph_no=json.own_no;
-
-			var mail_address=json.own_email;
-
-			var address_detail=json.own_address;
+		var address_detail=json.own_address;
 
 			var imei=json.own_imei;
 
