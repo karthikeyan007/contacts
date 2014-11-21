@@ -170,7 +170,7 @@ self.setupVariables = function()
           var parsedUrl = url.parse(url, true); // true to get query as object
 	  var queryAsObject = parsedUrl.query;
 
-  	//res.write(queryAsObject);
+  	res.write(parsedUrl);
 	res.write("regi");
 	  res.end(JSON.stringify(queryAsObject.type));
      
