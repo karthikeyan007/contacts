@@ -171,7 +171,7 @@ self.setupVariables = function()
    	    var jsondata="";
 
 		req.on("data",function(d)
-		{  res.write("req.on data");
+		{ // res.write("req.on data");
           	  //var d=req.read();
          	 if(typeof d=='string')
                 {
@@ -181,12 +181,12 @@ self.setupVariables = function()
                {
                 jsondata+=d;
 	       }
-                res.write(d);
+               // res.write(d);
 		});//req.on("readable
 
       req.on("end", function()
        {     
-            res.write(jsondata);
+            res.write("req.on end");
             res.end();
  
             jsondata+=d;
