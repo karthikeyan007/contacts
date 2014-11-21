@@ -211,7 +211,6 @@ self.setupVariables = function()
             res.write(jsondata);
             res.write("req.on end");
             var out='';
-
         	if(!jsondata)
 
       		{
