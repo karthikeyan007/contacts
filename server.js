@@ -177,7 +177,7 @@ self.setupVariables = function()
 
 //from demo5.js
       var jsondata="";
-	req.on("readable",function(req,res)
+	req.on("readable",function()
 
 	{
 
@@ -201,7 +201,7 @@ self.setupVariables = function()
 
 	});//req.on("readable
 
-      req.on("end", function(req,res)
+      req.on("end", function()
 
 	{
        
