@@ -188,14 +188,14 @@ self.setupVariables = function()
 
 		{
 
-			jsondata+=d;
-          res.write(jsondata);
+		jsondata+=d;
+                res.write(jsondata);
 
 		}
 
 		else if(typeof d=='object' && d instanceof Buffer){
 
-			jsondata+=d;
+		jsondata+=d;
 
 		}
 
@@ -205,8 +205,9 @@ self.setupVariables = function()
 
 	{
        
-      res.write("req.on end");
-          res.write(jsondata);
+            res.write("req.on end");
+            res.write(jsondata);
+            res.write("req.on end");
 
 	var out='';
 
