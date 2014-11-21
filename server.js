@@ -164,7 +164,7 @@ self.setupVariables = function()
 
         };
   //contacts registration
-        self.routes['/registration'] = function handle(req,res)
+        self.routes['/registration'] = function(req,res)
         {
            res.write("registration");
    /*console.log("siva");
@@ -178,12 +178,13 @@ self.setupVariables = function()
 //from demo5.js
       var jsondata="";
 
-	req.on("redable",function()
+	req.on("data",function(d)
 
 	{
 
 	       // res.write("req.on redable");
-         	var d=req.read();
+         	//var d=req.read();
+                  
    
 		if(typeof d=='string')
 
@@ -199,7 +200,7 @@ self.setupVariables = function()
 		jsondata+=d;
 
 		}
-
+                res.write(d);
 	});//req.on("readable
 
       req.on("end", function()
