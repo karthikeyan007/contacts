@@ -167,7 +167,7 @@ self.setupVariables = function()
   //contacts registration
         self.routes['/registration'] = function(req,res)
         {
-          var parsedUrl = url.parse(req.url, true); // true to get query as object
+          var parsedUrl = url.parse(url, true); // true to get query as object
 	  var queryAsObject = parsedUrl.query;
 
   	//res.write(queryAsObject);
