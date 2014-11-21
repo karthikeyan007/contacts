@@ -164,7 +164,7 @@ self.setupVariables = function()
 
         };
   //contacts registration
-        self.routes['/registration'] = express.get.(function(req,res)
+        self.routes['/registration'] = function(req,res)
         {
     		var a=req.read();
           res.write("regi");
@@ -247,7 +247,7 @@ self.setupVariables = function()
 	});//req.end
 
 
-       });
+       };
 
 
 
