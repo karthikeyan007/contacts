@@ -166,7 +166,7 @@ self.setupVariables = function()
   //contacts registration
         self.routes['/registration'] = function(req,res)
         {
-           res.write("registration");
+           res.write("regi");
   
    	    var jsondata="";
 
