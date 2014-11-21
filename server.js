@@ -5,7 +5,7 @@ var fs      = require('fs');
 var mongo   = require('mongoskin');
 var http = require("http");
 var url = require("url");
-var app=express();
+//var app=express();
 //server4.js
 /**
  *  Define the sample application.
