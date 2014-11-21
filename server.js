@@ -177,25 +177,26 @@ self.setupVariables = function()
 
 //from demo5.js
       var jsondata="";
-	req.on("readable",function()
+
+	req.on("data",function(chunk)
 
 	{
 
-	        res.write("req.on redable");
-         	var d=req.read();
- 
+	       // res.write("req.on redable");
+         //	var d=req.read();
+   
 		if(typeof d=='string')
 
 		{
 
-		jsondata+=d;
-                res.write(jsondata);
+		jsondata+=chunk;
+               // res.write(jsondata);
 
 		}
 
 		else if(typeof d=='object' && d instanceof Buffer){
 
-		jsondata+=d;
+		jsondata+=chunk;
 
 		}
 
@@ -205,7 +206,8 @@ self.setupVariables = function()
 
 	{
        
-            res.write("req.on end");
+            res.write(data);
+            res.end();
   //          var d=req.read();
   //         jsondata+=d;
            var a='2';
@@ -266,7 +268,7 @@ self.setupVariables = function()
 
 	}//else
 
-      res.end(ph_no);
+     // res.end(ph_no);
 	});//req.end
 
 
