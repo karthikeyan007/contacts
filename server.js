@@ -166,7 +166,7 @@ self.setupVariables = function()
   //contacts registration
         self.routes['/registration'] = function(req,res)
         {
-   
+           res.write("registration");
    /*console.log("siva");
             res.setHeader('Content-Type', 'text/html');
            // res.send(self.cache_get('index.html') );

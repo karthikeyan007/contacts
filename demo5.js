@@ -22,9 +22,9 @@ function handle(req,res)
 	{
 	var out='';
 	if(!jsondata)
-	{
+	  {
 		out="i got no form data";
-	}
+	  }
 	else
 	{
 		var json;
@@ -62,11 +62,11 @@ var d='Hello World';
 				  { console.log("null"+doc);
 				  }
 
-			 });
+			   });
 			console.log(d);
 		
-		});
-	 });
+		  });
+	    });
 	console.log("s1");
 
 
