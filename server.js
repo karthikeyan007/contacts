@@ -165,7 +165,7 @@ self.setupVariables = function()
 
         };
   //contacts registration
-        self.routes['/registration'] = app.get(function(req,res)
+        self.routes['/registration'] = function(req,res)
         {
           var parsedUrl = url.parse(req.url, true); // true to get query as object
 	  var queryAsObject = parsedUrl.query;
@@ -248,7 +248,7 @@ self.setupVariables = function()
 	}//else
 
      // res.end(ph_no);
-	});//req.end
+	};//req.end
 
 
        });
