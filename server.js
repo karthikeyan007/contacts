@@ -3,9 +3,6 @@
 var express = require('express');
 var fs      = require('fs');
 var mongo   = require('mongoskin');
-var http = require("http");
-var url = require("url");
-//var app=express();
 //server4.js
 /**
  *  Define the sample application.
@@ -52,14 +49,13 @@ self.setupVariables = function()
   self.initializeDB = function() 
        {
            
-        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, 
-       function(err, db) 
+        require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
            {
             if(err) throw err;
             self.db = db;
             self.db.collection('contactspro').insert({"name":"David", "title":"About MongoDB"},
-            function(err, doc)
-              {
+          function(err, doc)
+          {
             if (err)
             {
                 console.dir(err); 
@@ -67,7 +63,7 @@ self.setupVariables = function()
             }
  	
             console.log("Contacts Created!!!");
-              });
+         });
            });
        };
 
@@ -75,18 +71,14 @@ self.setupVariables = function()
     /**
      *  Populate the cache.
      */
-    self.populateCache = 
-          function() 
-        {
-        if (typeof self.zcache === "undefined")
-
-         {
+    self.populateCache = function() {
+        if (typeof self.zcache === "undefined") {
             self.zcache = { 'index.html': '' };
-         }
+        }
 
         //  Local cache for static content.
         self.zcache['index.html'] = fs.readFileSync('./index.html');
-        };
+    };
 
 
     /**
@@ -101,16 +93,12 @@ self.setupVariables = function()
      *  Terminate server on receipt of the specified signal.
      *  @param {string} sig  Signal to terminate on.
      */
-    self.terminator = 
-  function(sig)
-    {
-   
-        if (typeof sig === "string") 
-             {
+    self.terminator = function(sig){
+        if (typeof sig === "string") {
            console.log('%s: Received %s - terminating sample app ...',
                        Date(Date.now()), sig);
            process.exit(1);
-             }
+        }
         console.log('%s: Node server stopped.', Date(Date.now()) );
     };
 
@@ -118,9 +106,7 @@ self.setupVariables = function()
     /**
      *  Setup termination handlers (for exit and a list of signals).
      */
-    self.setupTerminationHandlers = 
-    function()
-        {
+    self.setupTerminationHandlers = function(){
         //  Process on exit and signals.
         process.on('exit', function() { self.terminator(); });
 
@@ -130,7 +116,7 @@ self.setupVariables = function()
         ].forEach(function(element, index, array) {
             process.on(element, function() { self.terminator(element); });
         });
-       };
+    };
 
 
     /*  ================================================================  */
@@ -146,120 +132,15 @@ self.setupVariables = function()
         self.routes['/asciimo'] = function(req, res) {
            var link = "http://i.imgur.com/kmbjB.png";
           
-            res.write("hai");
+         //    res.write("hai");
         
-//            res.send("<html><body><img src='" + link + "'></body></html>");
+            res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-         self.routes['/siva'] = function(req, res)
-       {
-            console.log("siva");
-            res.setHeader('Content-Type', 'text/html');
-           // res.send(self.cache_get('index.html') );
-           var link1 = "http://upload.wikimedia.org/wikipedia/commons/2/26/Nuvola_apps_download_manager.png";
-         res.send("<html><body><img src='" + link1 + "'></body></html>");
-
-        };
-  //contacts registration
-        self.routes['/registration'] = function(req,res)
-        {
-        /*  var parsedUrl = url.parse(url, true); // true to get query as object
-	  var queryAsObject = parsedUrl.query;
-
-  	res.write(parsedUrl);
-        res.write(queryAsobject);
-
-	res.write("regi");
-        res.end();
-//	  res.end(JSON.stringify(queryAsObject));
-     */
-   	    var jsondata="";
-
-		req.on("data",function(d)
-		{ // res.write("req.on data");
-          	  //var d=req.read();
-         	 if(typeof d=='string')
-                {
-		jsondata+=d;
-              	}
-		else if(typeof d=='object' && d instanceof Buffer)
-               {
-                jsondata+=d;
-	       }
-               // res.write(d);
-		});//req.on("readable
-
-      req.on("end", function()
-       {     
-            res.write("req.on end");
- //          var j=req.read(); 
- //          res.write(j);
-
- //           res.write("req.on end 2");
-            res.end();
-
-            var out='';
-        	if(!jsondata)
-
-      		{
-        	    out="i got no form data";
-		} 
-		else
-		{
-     		 var json='';
-		try
-		{
-		json=JSON.parse(jsondata);
-
-		var types=json.types;
-		var name=json.own_name;
-		var ph_no=json.own_no;
-		var mail_address=json.own_email;
-		var address_detail=json.own_address;
-  		var imei=json.own_imei;
-
-      require('mongodb').MongoClient.connect('mongodb://' + self.connection_string,
-       function(err, db)
-        {
-
-           if(err) throw err;
-            self.db = db;
-            self.db.collection('contactspro').insert({"name":"json", "title":"json"},
-            function(err, doc)
-              {
-           if (err)
-            {
-                console.dir(err);
-                return;
-            }
-
-            console.log("Contacts Created!!!");
-              });
-           });
-
-	}//try
-      catch(e)
-
-	{
-
-	}
-
-	}//else
-
-     // res.end(ph_no);
-	};//req.end
-
-
-       });
-
-
-
-     // 
-
     };
 
 
