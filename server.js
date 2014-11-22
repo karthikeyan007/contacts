@@ -130,6 +130,7 @@ self.setupVariables = function()
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
+          
            var link = "http://i.imgur.com/kmbjB.png";
           
          //    res.write("hai");
@@ -141,7 +142,20 @@ self.setupVariables = function()
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-
+          self.routes['/g'] = function(req, res) {
+              self.app.get(function(req,res)
+            {
+            res.write("sg");
+             });
+              
+        };
+          self.routes['/p'] = function(req, res) {
+           
+              self.app.post(function(req,res)
+            {
+            res.write("sp");
+             });
+        };
         self.routes['/register'] = function(req,res) {
            
             //var r=req.url;
@@ -238,12 +252,8 @@ var d='Hello World';
 
 
             //...
-
-
-
-
-
         };
+
     self.routes['/s'] = function(req, res) {
         self.app.post('/s',function(req,res)
         {
