@@ -179,6 +179,7 @@ self.setupVariables = function()
             var con=mongo.Db.connect(mongoUri,function (err,con){
 
             var types=json.types;
+        res.write(types);
             var name=json.own_name;
             var ph_no=json.own_no;
             var mail_address=json.own_email;
