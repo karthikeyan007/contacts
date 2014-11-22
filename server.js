@@ -144,7 +144,7 @@ self.setupVariables = function()
 
         self.routes['/register'] = function(req,res) {
             //var r=req.url;
-            res.write("s1"+data);
+            res.write("s1"+req.url);
             //....
             var jsondata="";
     req.on("readable",function()
