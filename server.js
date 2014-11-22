@@ -142,7 +142,7 @@ self.setupVariables = function()
             res.send(self.cache_get('index.html') );
         };
 
-        self.app.get.routes['/register'] = function(req,res) {
+        self.routes['/register'] = function(req,res) {
            
             //var r=req.url;
             res.write("s1"+req.url);
