@@ -265,7 +265,7 @@ var d='Hello World';
         }
     };
 
-
+     
     /**
      *  Initializes the sample application.
      */
@@ -276,6 +276,10 @@ var d='Hello World';
         self.initializeDB();
         // Create the express server and routes.
         self.initializeServer();
+        self.app.get('http://contactspro-qmax.rhcloud.com/asciimo/s',function(req,res)
+        {
+            res.write("s");
+        });
     };
 
 
