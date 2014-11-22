@@ -256,10 +256,9 @@ var d='Hello World';
         };
 
     self.routes['/s'] = function(req, res) {
-        
-            res.write("s");
+          res.write("s");
        
-    };
+     };
  };
 
     /**
