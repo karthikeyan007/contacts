@@ -143,20 +143,7 @@ self.setupVariables = function()
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-         self.app.get.routes['/g'] = function(req, res) {
-              
-            res.send("sg");
-            
-              
-        };
-          self.routes['/p'] = function(req, res) {
-           
-              self.app.post(function(req,res)
-            {
-            res.write("sp");
-             });
-        };
-
+         
         self.routes['/register'] = function(req,res) {
            
             //var r=req.url;
@@ -254,11 +241,22 @@ var d='Hello World';
 
             //...
         };
+          self.routes['/siva'] = function(req,res) 
+          {
+            if(req.method='POST')
+            var body='';
+            req.on('data',function(data)
+            {
+              body+=data;
+            }
+            req.on('end'function()
+            {
+                res.write(body);
+                res.end();
+            }
 
-    self.routes['/s'] = function(req, res) {
-          res.write("s");
-       
-     };
+          };
+
  };
 
     /**
@@ -268,11 +266,7 @@ var d='Hello World';
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
-        /*self.app.get('/s',function(req,res)
-        {
-            res.write("s"+req);
-        });*/
-
+       
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
