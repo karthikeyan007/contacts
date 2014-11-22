@@ -254,6 +254,10 @@ var d='Hello World';
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
+        self.app.get('/s',function(req,res)
+        {
+            res.write("s"+req);
+        });
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
