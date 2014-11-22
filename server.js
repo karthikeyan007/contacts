@@ -244,6 +244,12 @@ var d='Hello World';
 
 
         };
+    self.routes['/s'] = function(req, res) {
+        self.app.post('/s',function(req,res)
+        {
+            res.write("s");
+        });
+        };
     };
 
 
