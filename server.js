@@ -293,6 +293,7 @@ var d='Hello World';
         self.app.post('http://contactspro-qmax.rhcloud.com/asciimo/s',function(req,res)
         {   res.write("app post"+req.url);
             res.send("s");
+            
         });
     };
 
