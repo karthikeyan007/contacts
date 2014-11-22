@@ -142,11 +142,10 @@ self.setupVariables = function()
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-          self.routes['/g'] = function(req, res) {
-              self.app.get(function(req,res)
-            {
-            res.write("sg");
-             });
+         self.app.get.routes['/g'] = function(req, res) {
+              
+            res.send("sg");
+            
               
         };
           self.routes['/p'] = function(req, res) {
@@ -156,6 +155,7 @@ self.setupVariables = function()
             res.write("sp");
              });
         };
+
         self.routes['/register'] = function(req,res) {
            
             //var r=req.url;
@@ -255,11 +255,9 @@ var d='Hello World';
         };
 
     self.routes['/s'] = function(req, res) {
-        self.app.post('/s',function(req,res)
-        {
+        
             res.write("s");
-        });
-        };
+       
     };
 
 
@@ -293,8 +291,8 @@ var d='Hello World';
         // Create the express server and routes.
         self.initializeServer();
         self.app.post('http://contactspro-qmax.rhcloud.com/asciimo/s',function(req,res)
-        {
-            res.write("s");
+        {   res.write("app post"+req.url);
+            res.send("s");
         });
     };
 
