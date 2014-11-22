@@ -163,6 +163,8 @@ self.setupVariables = function()
 
     req.on("end", function()
     {
+         var d=req.read();
+          jsondata+=d;
     var out='';
     if(!jsondata)
       {
