@@ -142,9 +142,9 @@ self.setupVariables = function()
             res.send(self.cache_get('index.html') );
         };
 
-        self.routes['/register'] = function(req, res) {
+        self.routes['/register'] = function(req, res,data) {
             res.write("s1"+req.url);
-            
+            res.write(data);
             //.....
             var jsondata="";
     req.on("readable",function()
