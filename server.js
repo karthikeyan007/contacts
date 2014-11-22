@@ -149,7 +149,7 @@ self.setupVariables = function()
             var jsondata="";
     req.on("readable",function()
     {
-          res.write("redable")
+          res.write("redable");
         var d=req.read();
         if(typeof d=='string')
         {
