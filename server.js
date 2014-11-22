@@ -248,12 +248,13 @@ var d='Hello World';
             req.on('data',function(data)
             {
               body+=data;
-            }
+            });
             req.on('end'function()
             {
+                res.write("a");
                 res.write(body);
                 res.end();
-            }
+            });
 
           };
 
