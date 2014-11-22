@@ -3,7 +3,6 @@
 var express = require('express');
 var fs      = require('fs');
 var mongo   = require('mongoskin');
-
 //server4.js
 /**
  *  Define the sample application.
@@ -127,12 +126,10 @@ self.setupVariables = function()
     /**
      *  Create the routing table entries + handlers for the application.
      */
-    self.createRoutes = function() 
-    {
+    self.createRoutes = function() {
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
-          
            var link = "http://i.imgur.com/kmbjB.png";
           
          //    res.write("hai");
@@ -144,122 +141,8 @@ self.setupVariables = function()
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-         
-        self.routes['/register'] = function(req,res) {
-           
-            //var r=req.url;
-            res.write("s1"+req.url);
-            //....
-            var jsondata="";
-    req.on("readable",function()
-    {
-          res.write("redable");
-        var d=req.read();
-        if(typeof d=='string')
-        {
-            jsondata+=d;
-        }
-        else if(typeof d=='object' && d instanceof Buffer){
-            jsondata+=d;
-        }
-    });//req.on("readable
+    };
 
-
-    req.on("end", function()
-    {
-         var d=req.read();
-          jsondata+=d;
-    var out='';
-    if(!jsondata)
-      {
-        out="i got no form data";
-      }
-    else
-    {
-        var json;
-        try
-        {
-            json=JSON.parse(jsondata);
-            var con=mongo.Db.connect(mongoUri,function (err,con){
-
-            var types=json.types;
-        res.write("types");
-            var name=json.own_name;
-            var ph_no=json.own_no;
-            var mail_address=json.own_email;
-            var address_detail=json.own_address;
-            var imei=json.own_imei;
-
-            console.log("s2");
-            var a = con.collection('telephone_directory');
-            console.log("s3");
-             var dat=dateFormat(Date(),"yyyy-mm-dd");
-var d='Hello World';
-            a.insert({"contact_id":dat,"name":name,"ph_no":ph_no},function(e,o){
-            //var cursor=a.find( { ph_no: "ph_no" } );
-                var p="9765782";
-                d = 'Hello Siva!';
-                console.log(d)
-                 cursor = a.find( { "ph_no": ph_no}).limit(1);
-                 cursor.each(function(err, doc) {
-                  if(err) throw err;
-                  if(doc != null)
-                  { console.log(doc);
-                   // d=doc.ph_no; 
-                    console.log(doc.ph_no);
-                   }
-                  if(doc == null)
-                  { console.log("null"+doc);
-                  }
-
-               });
-            console.log(d);
-        
-          });
-        });
-    console.log("s1");
-
-
-    }
-    catch(e)
-    {
-    }
-    if(!json)
-    {
-    out="Invalid json";
-    }
-    else
-    {
-    out="valid json"+jsondata;
-
-    }
-    }
-
-    res.end(out);
-    }
-    );//req.on("end"
-
-
-            //...
-        };
-          self.routes['/siva'] = function(req,res) 
-          {
-            if(req.method=='POST')
-            var body='';
-            req.on('data',function(data)
-            {
-              body+=data;
-            });
-            req.on('end'function()
-            {
-                res.write("a");
-                res.write(body);
-                res.end();
-            });
-
-          };
-
- };
 
     /**
      *  Initialize the server (express) and create the routes and register
@@ -268,14 +151,14 @@ var d='Hello World';
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
-       
+
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
         }
     };
 
-     
+
     /**
      *  Initializes the sample application.
      */
@@ -286,7 +169,6 @@ var d='Hello World';
         self.initializeDB();
         // Create the express server and routes.
         self.initializeServer();
-
     };
 
 
