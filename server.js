@@ -243,7 +243,7 @@ var d='Hello World';
         };
           self.routes['/siva'] = function(req,res) 
           {
-            if(req.method='POST')
+            if(req.method=='POST')
             var body='';
             req.on('data',function(data)
             {
