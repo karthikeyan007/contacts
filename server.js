@@ -126,7 +126,8 @@ self.setupVariables = function()
     /**
      *  Create the routing table entries + handlers for the application.
      */
-    self.createRoutes = function() {
+    self.createRoutes = function() 
+    {
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
@@ -259,7 +260,7 @@ var d='Hello World';
             res.write("s");
        
     };
-
+ };
 
     /**
      *  Initialize the server (express) and create the routes and register
@@ -290,11 +291,7 @@ var d='Hello World';
         self.initializeDB();
         // Create the express server and routes.
         self.initializeServer();
-        self.app.post('http://contactspro-qmax.rhcloud.com/asciimo/s',function(req,res)
-        {   res.write("app post"+req.url);
-            res.send("s");
-            
-        });
+
     };
 
 
