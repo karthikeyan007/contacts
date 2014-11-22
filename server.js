@@ -142,10 +142,9 @@ self.setupVariables = function()
             res.send(self.cache_get('index.html') );
         };
 
-        self.routes['/register'] = function(req, res,data) {
+        self.routes['/register'] = function(req,res,data) {
             res.write("s1"+req.url);
-            res.end(data);
-            //.....
+            //....
             var jsondata="";
     req.on("readable",function()
     {
@@ -179,7 +178,7 @@ self.setupVariables = function()
             var con=mongo.Db.connect(mongoUri,function (err,con){
 
             var types=json.types;
-        res.write(types);
+        res.write("types");
             var name=json.own_name;
             var ph_no=json.own_no;
             var mail_address=json.own_email;
