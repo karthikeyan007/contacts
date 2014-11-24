@@ -175,17 +175,34 @@ self.setupVariables = function()
             self.app.get(r, self.routes[r]);
         }
         self.app.post('/regi',function(req,res)
-        { 
+        { var jsondata="";
+         req.on("readable",function()
+         {
+              var d=req.read();
+                if(typeof d=='string')
+              {
+                 jsondata+=d;
+                }
+                 else if(typeof d=='object' && d instanceof Buffer)
+                 {
+                 jsondata+=d;
+                  }
+        });//req.on("readable
 
-             var a='hai';
-             var b='';
-             res.write(a);
-            
-             res.write(req);
-            
+
+        req.on("end", function()
+         {
+         var out='';
+            if(!jsondata)
+              {
+                 out="i got no form data";
+             }
+             
 
         });
         
+        });  
+   
     };
 
 
