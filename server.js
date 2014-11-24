@@ -188,7 +188,7 @@ self.setupVariables = function()
 
                 });
             res.on('end',
-                function(req,res)
+                function()
                 {
                 res.write("end");
 
