@@ -224,7 +224,7 @@ self.setupVariables = function()
                     self.db = db;
                      var document = {name:"David", title:"About MongoDB"};
   
-                    self.db.collection('contactspro').insert(document,
+                    self.db.collection('contactspro').insert(document,{w: 1},
                     function(err,records)
                     { 
                         docid=document1._id;
