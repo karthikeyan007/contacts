@@ -178,7 +178,7 @@ self.setupVariables = function()
         { 
 
              var a='hai';
-            res.send(req);
+            res.write(req);
            // res.write(a);
             /*res.on('data',
                 function(data)
