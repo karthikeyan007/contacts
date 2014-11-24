@@ -174,21 +174,21 @@ self.setupVariables = function()
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
         }
-        self.app.post('/regi',function(req,data)
+        self.app.post('/regi',function(req,res)
         { 
 
              var a='hai';
+             var b='';
              res.write(a);
-            res.write(data);
+            
            // res.write(a);
-            /*res.on('data',
+            res.on('data',
                 function(data)
                 {
-                    res.write("data");
-               //   a+=data;  
-                  res.write("a"+a);
-
-                });*/
+                   
+                 b+=data;  
+                  
+                });
             res.on('end',
                 function()
                 {
