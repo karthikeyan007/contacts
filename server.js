@@ -225,6 +225,7 @@ self.setupVariables = function()
                     {
 
                 ///
+                    /*
                     cursor = self.db.collection('contactspro').find().limit(1);
                      res.write("Get contact id");
                     cursor.each(function(err, doc) 
@@ -246,7 +247,7 @@ self.setupVariables = function()
                         }
 
                     });
-
+                      */
 
                 /////
 
@@ -257,6 +258,7 @@ self.setupVariables = function()
                         }
                          //res.write();
                     console.log("Contacts Created!!!");
+                    res.write("doc_id"+doc._id);
                     });
                     });
                  //////
