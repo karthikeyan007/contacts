@@ -222,7 +222,7 @@ self.setupVariables = function()
                     {
                     if(err) throw err;
                     self.db = db;
-                    self.db.collection('contactspro').insert({"name":"1", "title":"2"},
+                    self.db.collection('contactspro').insert({"name":name, "title":ph_no},
                     function(err, doc)
                     {
                      if (err)
@@ -235,11 +235,7 @@ self.setupVariables = function()
                      });
                
                     });
-                 //////
-                         res.write("insert");
-                        res.write("doc_id"+doc.name);
-                        res.write("doc_id"+doc.title);
-                         //res.write("doc_id1"+docid1);
+                 
                 res.end(out);
                 });//res(end)
         
