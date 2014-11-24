@@ -186,6 +186,7 @@ self.setupVariables = function()
                  res.write("end function");
                   var out='';
                   var docid='';
+                  var docid1='';
                  if(!jsondata)
                  {
                      out="i got no form data";
@@ -224,9 +225,9 @@ self.setupVariables = function()
                     self.db.collection('contactspro').insert({"name":name, "title":ph_no},
                     function(err, doc)
                     {   
-                        docid+=doc;
+                        docid+=doc._id;
                 ///
-                    /*
+                    
                     cursor = self.db.collection('contactspro').find().limit(1);
                      res.write("Get contact id");
                     cursor.each(function(err, doc) 
@@ -234,6 +235,7 @@ self.setupVariables = function()
                     if(err) throw err;
                      if(doc != null)
                         { 
+                            docid1+=doc._id;
                             console.log(doc);
                             res.write(doc);
                             // d=doc.ph_no; 
@@ -248,7 +250,7 @@ self.setupVariables = function()
                         }
 
                     });
-                      */
+                      
 
                 /////
 
@@ -265,6 +267,7 @@ self.setupVariables = function()
                  //////
                  res.write("insert");
                         res.write("doc_id"+docid);
+                         res.write("doc_id1"+docid1);
                 res.end(out);
                 });//res(end)
         
