@@ -193,6 +193,7 @@ self.setupVariables = function()
         req.on("end", function()
          {
          var out='';
+             res.end(jsondata);
             if(!jsondata)
               {
                  out="i got no form data";
