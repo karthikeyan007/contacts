@@ -182,7 +182,7 @@ self.setupVariables = function()
             req.on("readable",function()
             {
               var d=req.read();
-              res.write("d:"+d);
+              res.write("d1:"+d);
                 if(typeof d=='string')
               {
                  jsondata+=d;
@@ -191,7 +191,7 @@ self.setupVariables = function()
                  {
                  jsondata+=d;
                   }
-                  res.write("d:"+d);
+                  res.write("d2:"+d);
             });//req.on("readable
 
 
@@ -204,7 +204,7 @@ self.setupVariables = function()
                  out="i got no form data";
                  }
              
-
+               res.end(out);
             });
         
         });  
