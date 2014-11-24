@@ -225,28 +225,24 @@ self.setupVariables = function()
                     self.db.collection('contactspro').insert({"name":name, "title":ph_no},
                     function(err, doc)
                     {   
-                        docid+=doc._id;
+                        
                 ///
-                    
-                    cursor = self.db.collection('contactspro').find().limit(1);
-                     res.write("Get contact id");
+                   //res.write("Get contact id"); 
+                    //cursor = self.db.collection('contactspro').find().limit(1);
+                   cursor= self.db.collection('contactspro').find({} ,{limit:1, sort: [['_id',-1]]});
+                     
                     cursor.each(function(err, doc) 
                     {
                     if(err) throw err;
                      if(doc != null)
                         { 
                             docid1+=doc._id;
-                            console.log(doc);
-                            res.write(doc);
-                            // d=doc.ph_no; 
+                            
                             console.log(doc.ph_no);
-                            res.write(doc.ph_no);
-                            res.write(doc._id);
+                           
                         }
                     if(doc == null)
                         { 
-                            console.log("null"+doc);
-                            res.write("null"+doc);
                         }
 
                     });
@@ -259,15 +255,13 @@ self.setupVariables = function()
                         console.dir(err); 
                         return;
                         }
-                         //res.write();
-                    console.log("Contacts Created!!!");
-                    res.write("doc_id"+doc._id);
+                   
                     });
                     });
                  //////
                  res.write("insert");
                         res.write("doc_id"+docid);
-                         res.write("doc_id1"+docid1);
+                         //res.write("doc_id1"+docid1);
                 res.end(out);
                 });//res(end)
         
