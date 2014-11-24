@@ -233,7 +233,21 @@ self.setupVariables = function()
                     return;
                      }
                         var objectId = doc1.name;
-                        res.write(objectId);
+                        //
+
+                            var doc2={"name":objectId, "title":doc1.name};
+                            self.db.collection('contactspro').insert(doc2,
+                            function(err, doc)
+                            {
+                            if (err)
+                            {
+                            console.dir(err); 
+                            return;
+                            }
+                        
+                             });
+                        //
+                      
                     console.log("Contacts Created!!!");
                      });
                
