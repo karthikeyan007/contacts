@@ -166,7 +166,8 @@ self.setupVariables = function()
      *  Initialize the server (express) and create the routes and register
      *  the handlers.
      */
-    self.initializeServer = function() {
+    self.initializeServer = function()
+     {
         self.createRoutes();
         self.app = express.createServer();
 
@@ -196,20 +197,49 @@ self.setupVariables = function()
 
 
             req.on("end", function()
-            { res.write("end function");
-                var out='';
-                res.end(jsondata);
+            { 
+                 res.write("end function");
+                  var out='';
                  if(!jsondata)
-                {
-                 out="i got no form data";
+                 {
+                     out="i got no form data";
                  }
-             
-               res.end(out);
-            });
-        
-        });  
+                 else
+                    {
+                    var json;
+                    try
+                 {
+                     json=JSON.parse(jsondata);
+                    
+                     var types=json.types;
+                     var name=json.own_name;
+                    var ph_no=json.own_no;
+                    var mail_address=json.own_email;
+                    var address_detail=json.own_address;
+                     var imei=json.own_imei;
+
    
-    };
+                 }
+                 catch(e)
+                   {
+                    }
+                if(!json)
+                    {
+                         out="Invalid json";
+                     }
+                     else
+                     {
+                     out="valid json"+jsondata;
+
+                     }
+                    }
+
+                res.end(out);
+            });//res(end)
+        
+        });//post  
+   
+    };//initialize
 
 
     /**
