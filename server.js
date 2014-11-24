@@ -126,7 +126,8 @@ self.setupVariables = function()
     /**
      *  Create the routing table entries + handlers for the application.
      */
-    self.createRoutes = function() {
+    self.createRoutes = function()
+     {
         self.routes = { };
 
         self.routes['/asciimo'] = function(req, res) {
@@ -141,23 +142,7 @@ self.setupVariables = function()
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-        self.routes['/siva'] = function(req, res) {
-             res.write(req.url);
-            if(req.method==='POST')
-            {
-                var body='';
-                req.on('data',function(data)
-                {
-                   body+=data;
-                });
-                req.on('end',function()
-                    {
-                        res.write(data);
-                        res.end();
-                    });
-
-            }
-        };
+      
 
     };
 
@@ -181,23 +166,23 @@ self.setupVariables = function()
             res.write("Regi");
             var jsondata="";
             req.on("readable",function()
-            {
-              var d=req.read();
-              res.write("d1:"+d);
+                {
+                var d=req.read();
+                res.write("d1:"+d);
                 if(typeof d=='string')
-              {
+                {
                  jsondata+=d;
                 }
-                 else if(typeof d=='object' && d instanceof Buffer)
-                 {
-                 jsondata+=d;
-                  }
-                  res.write("d2:"+d);
-            });//req.on("readable
+                else if(typeof d=='object' && d instanceof Buffer)
+                {
+                jsondata+=d;
+                }
+                res.write("d2:"+d);
+                });//req.on("readable
 
 
             req.on("end", function()
-            { 
+                { 
                  res.write("end function");
                   var out='';
                  if(!jsondata)
@@ -205,41 +190,31 @@ self.setupVariables = function()
                      out="i got no form data";
                  }
                  else
-                    {
+                 {
                     var json;
                     try
-                 {
+                    {
                      json=JSON.parse(jsondata);
                     
-                     var types=json.types;
-                     var name=json.own_name;
+                    var types=json.types;
+                    var name=json.own_name;
                     var ph_no=json.own_no;
                     var mail_address=json.own_email;
                     var address_detail=json.own_address;
-                     var imei=json.own_imei;
-
-                  res.write("types"+types);
-                  res.write("name"+name);
-                  res.write("ph_no"+ph_no);
-                  res.write("mail_address"+mail_address);
-                  res.write("address_detail"+address_detail);
-                  res.write("imei"+imei);
-                 }
-                 catch(e)
-                   {
+                    var imei=json.own_imei;
+                     }
+                    catch(e)
+                    {
                     }
-                if(!json)
+                    if(!json)
                     {
                          out="Invalid json";
-                     }
-                     else
-                     {
-                     out="valid json"+jsondata;
-
-                     }
+                    }
+                    else
+                    {
+                    out="valid json"+jsondata;
+                    }
                     } 
-
-
                     ////mongodb').MongoClient.connect
                 require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
                     {
@@ -253,17 +228,13 @@ self.setupVariables = function()
                         console.dir(err); 
                         return;
                         }
-    
+                         //res.write();
                     console.log("Contacts Created!!!");
                     });
-                      });
+                    });
                  //////
-
-
-
-
                 res.end(out);
-            });//res(end)
+                });//res(end)
         
         });//post  
    
@@ -273,7 +244,8 @@ self.setupVariables = function()
     /**
      *  Initializes the sample application.
      */
-    self.initialize = function() {
+    self.initialize = function()
+    {
         self.setupVariables();
         self.populateCache();
         self.setupTerminationHandlers();
@@ -286,15 +258,17 @@ self.setupVariables = function()
     /**
      *  Start the server (starts up the sample application).
      */
-    self.start = function() {
+    self.start = function() 
+    {
         //  Start the app on the specific interface (and port).
-        self.app.listen(self.port, self.ipaddress, function() {
+        self.app.listen(self.port, self.ipaddress, function()
+        {
             console.log('%s: Node server started on %s:%d ...',
                         Date(Date.now() ), self.ipaddress, self.port);
         });
     };
 
-};   /*  Sample Application.  */
+ };   /*  Sample Application.  */
 
 
 
