@@ -227,7 +227,8 @@ self.setupVariables = function()
                     self.db.collection('contactspro').insert(document1,
                     function(err, doc)
                     { 
-                        docid+=document1._id;
+                        docid=document1._id;
+                         res.write("document1._id"+document1._id);
                         //docid1=doc.ph_no;
                         if (err)
                         {
@@ -240,6 +241,7 @@ self.setupVariables = function()
                     });
                  
                        res.write("insert");
+                       res.write("document1._id"+document1._id);
                        res.write("doc_id"+docid);
                        //res.write("doc_id"+docid1);
                        res.end(out);
