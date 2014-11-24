@@ -226,6 +226,7 @@ self.setupVariables = function()
 
                 ///
                     cursor = self.db.collection('contactspro').find().limit(1);
+                     res.write("Get contact id");
                     cursor.each(function(err, doc) 
                     {
                     if(err) throw err;
