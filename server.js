@@ -219,7 +219,7 @@ self.setupVariables = function()
                      var imei=json.own_imei;
 
                   res.write("types"+types);
-                  res.write("name"+ph_no);
+                  res.write("name"+name);
                   res.write("ph_no"+ph_no);
                   res.write("mail_address"+mail_address);
                   res.write("address_detail"+address_detail);
