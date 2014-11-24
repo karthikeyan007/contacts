@@ -224,13 +224,7 @@ self.setupVariables = function()
                     self.db = db;
                     self.db.collection('contactspro').insert({"name":name, "title":ph_no},
                     function(err, doc)
-                    {   
-                        
-                ///
-                   //res.write("Get contact id"); 
-                    //cursor = self.db.collection('contactspro').find().limit(1);
-                  
-
+                    { 
                         if (err)
                         {
                         console.dir(err); 
@@ -238,30 +232,13 @@ self.setupVariables = function()
                         }
                    
                     });
-                     cursor= self.db.collection('contactspro').find({} ,{limit:1, sort: [['_id',-1]]}.function(err, doc)                                  
-                    {
-                    if(err) throw err;
-                     if(doc != null)
-                        { 
-                            docid+=doc.name; 
-                            docid1+=doc._id;       
-                         
-                        }
-                    if(doc == null)
-                        { 
-                        }
-
+               
                     });
-                      
-
-                /////
-                    });
-                 //////
-                         res.write("insert");
-                        res.write("doc_id"+docid);
-                        res.write("doc_id"+docid1);
-                         //res.write("doc_id1"+docid1);
-                res.end(out);
+                 
+                       res.write("insert");
+                       res.write("doc_id"+docid);
+                       res.write("doc_id"+docid1);
+                       res.end(out);
                 });//res(end)
         
         });//post  
