@@ -232,7 +232,7 @@ self.setupVariables = function()
                      out="valid json"+jsondata;
 
                      }
-                    }
+                    } 
 
                 res.end(out);
             });//res(end)
