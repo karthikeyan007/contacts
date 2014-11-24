@@ -176,16 +176,17 @@ self.setupVariables = function()
         }
         self.app.post('/regi',function(req,res)
         {  var a='hai';
-            res.write(req);
-            res.write(a);
+            res.send(req);
+           // res.write(a);
             res.on('data',function(data)
                 {
                   a+=data;  
+                  res.write("a"+a);
                 });
             res.on('end',
                 function(req,res)
                 {
-                 res.send(a);
+                 res.write(a);
 
                 });
             res.end();
