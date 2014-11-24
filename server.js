@@ -171,14 +171,18 @@ self.setupVariables = function()
         self.app = express.createServer();
 
         //  Add handlers for the app (from the routes).
-        for (var r in self.routes) {
+        for (var r in self.routes) 
+            {
             self.app.get(r, self.routes[r]);
-        }
+             }
         self.app.post('/regi',function(req,res)
-        { var jsondata="";
-         req.on("readable",function()
-         {
+        {  
+            res.write("Regi");
+            var jsondata="";
+            req.on("readable",function()
+            {
               var d=req.read();
+              res.write("d:"+d);
                 if(typeof d=='string')
               {
                  jsondata+=d;
@@ -187,20 +191,21 @@ self.setupVariables = function()
                  {
                  jsondata+=d;
                   }
-        });//req.on("readable
+                  res.write("d:"+d);
+            });//req.on("readable
 
 
-        req.on("end", function()
-         {
-         var out='';
-             res.end(jsondata);
-            if(!jsondata)
-              {
+            req.on("end", function()
+            {
+                var out='';
+                res.end(jsondata);
+                 if(!jsondata)
+                {
                  out="i got no form data";
-             }
+                 }
              
 
-        });
+            });
         
         });  
    
