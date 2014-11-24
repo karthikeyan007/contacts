@@ -179,6 +179,7 @@ self.setupVariables = function()
             res.write(req.url);
             res.write(a);
             res.end();
+            
         });
         
     };
