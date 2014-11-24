@@ -185,7 +185,7 @@ self.setupVariables = function()
                 { 
                  res.write("end function");
                   var out='';
-                  var docid='as';
+                  var docid='';
                   var docid1='';
                  if(!jsondata)
                  {
@@ -222,31 +222,25 @@ self.setupVariables = function()
                     {
                     if(err) throw err;
                     self.db = db;
-                    var document = {name:"siva", title:"insert"};
-                    self.db.collection('contactspro').insert(document,
-                    function(err,records)
+                    self.db.collection('contactspro').insert({"name":"siva", "title":"siva"},
+                    function(err, doc)
                     { 
-                        docid=document._id;
-                        docid1=records[0]._id;
-                        res.write("document1._id"+records[0]._id);
-                        // res.write("document1._id"+document._id);
-                      
+                        
                         if (err)
                         {
-                          res.write("error");
-                          console.dir(err); 
-                          return;
+                        console.dir(err); 
+                        return;
                         }
                    
                     });
-                      
+               
                     });
-                 
-                       res.write("insert");
-                       res.write("document1._id"+document._id);
-                       res.write("doc_id"+docid);
-                       //res.write("doc_id"+docid1);
-                       res.end(out);
+                 //////
+                         res.write("insert");
+                        res.write("doc_id"+docid);
+                        res.write("doc_id"+docid1);
+                         //res.write("doc_id1"+docid1);
+                res.end(out);
                 });//res(end)
         
         });//post  
