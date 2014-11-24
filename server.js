@@ -152,7 +152,7 @@ self.setupVariables = function()
                 });
                 req.on('end',function()
                     {
-                        res.write("data");
+                        res.write(data);
                         res.end();
                     });
 
