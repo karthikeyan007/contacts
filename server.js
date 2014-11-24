@@ -220,10 +220,11 @@ self.setupVariables = function()
                     ////mongodb').MongoClient.connect
                 require('mongodb').MongoClient.connect('mongodb://' + self.connection_string, function(err, db) 
                     {
-                        
+
                     if(err) throw err;
                     self.db = db;
-                    self.db.collection('contactspro').insert({"name":name, "title":ph_no},
+                    var doc={"name":name, "title":ph_no};
+                    self.db.collection('contactspro').insert(doc,
                     function(err, doc)
                     {
                      if (err)
