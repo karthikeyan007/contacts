@@ -185,6 +185,7 @@ self.setupVariables = function()
                 { 
                  res.write("end function");
                   var out='';
+                  var docid='';
                  if(!jsondata)
                  {
                      out="i got no form data";
@@ -223,6 +224,7 @@ self.setupVariables = function()
                     self.db.collection('contactspro').insert({"name":name, "title":ph_no},
                     function(err, doc)
                     {   
+                        docid+=doc;
                 ///
                     /*
                     cursor = self.db.collection('contactspro').find().limit(1);
@@ -262,7 +264,7 @@ self.setupVariables = function()
                     });
                  //////
                  res.write("insert");
-                        res.write("doc_id"+doc._id);
+                        res.write("doc_id"+docid);
                 res.end(out);
                 });//res(end)
         
