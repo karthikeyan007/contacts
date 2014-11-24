@@ -172,8 +172,15 @@ self.setupVariables = function()
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
-            self.app.post(r, self.routes[r]);
+            self.app.get(r, self.routes[r]);
         }
+        self.app.post('/regi',function(req,res)
+        {  var a='hai';
+            res.write(req.url);
+            res.write(a);
+            res.end();
+        });
+        
     };
 
 
