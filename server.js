@@ -141,7 +141,7 @@ self.setupVariables = function()
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-        /*self.routes['/siva'] = function(req, res) {
+        self.routes['/siva'] = function(req, res) {
             if(req.method=='POST')
             {
                 var body='';
@@ -157,7 +157,7 @@ self.setupVariables = function()
 
             }
         };
-        */
+
     };
 
 
