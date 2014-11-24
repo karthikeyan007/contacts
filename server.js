@@ -178,8 +178,18 @@ self.setupVariables = function()
         {  var a='hai';
             res.write(req.url);
             res.write(a);
+            res.on('data',function(data)
+                {
+                  a+=data;  
+                });
+            res.on('end',
+                function(req,res)
+                {
+                 res.send(a);
+
+                });
             res.end();
-            
+
         });
         
     };
