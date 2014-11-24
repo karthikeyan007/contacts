@@ -232,7 +232,8 @@ self.setupVariables = function()
                     console.dir(err); 
                     return;
                      }
-    
+                        var objectId = doc._id;
+                        res.write(objectId);
                     console.log("Contacts Created!!!");
                      });
                
