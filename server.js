@@ -220,28 +220,31 @@ self.setupVariables = function()
                     {
                     if(err) throw err;
                     self.db = db;
-                    cursor=self.db.collection('contactspro').insert({"name":name, "title":ph_no},
+                    self.db.collection('contactspro').insert({"name":name, "title":ph_no},
                     function(err, doc)
                     {
 
                 ///
-                    cursor = a.find().limit(1);
-                 cursor.each(function(err, doc) {
-                  if(err) throw err;
-                  if(doc != null)
-                  { console.log(doc);
-                    res.write(doc);
-                   // d=doc.ph_no; 
-                    console.log(doc.ph_no);
-                    res.write(doc.ph_no);
-                    res.write(doc._id);
-                   }
-                  if(doc == null)
-                  { console.log("null"+doc);
-                  res.write("null"+doc);
-                  }
+                    cursor = self.db.collection('contactspro').find().limit(1);
+                    cursor.each(function(err, doc) 
+                    {
+                    if(err) throw err;
+                     if(doc != null)
+                        { 
+                            console.log(doc);
+                            res.write(doc);
+                            // d=doc.ph_no; 
+                            console.log(doc.ph_no);
+                            res.write(doc.ph_no);
+                            res.write(doc._id);
+                        }
+                    if(doc == null)
+                        { 
+                            console.log("null"+doc);
+                            res.write("null"+doc);
+                        }
 
-               });
+                    });
 
 
                 /////
