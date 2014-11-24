@@ -185,7 +185,7 @@ self.setupVariables = function()
                 { 
                  res.write("end function");
                   var out='';
-                  var docid='';
+                  var docid='as';
                   var docid1='';
                  if(!jsondata)
                  {
@@ -222,10 +222,12 @@ self.setupVariables = function()
                     {
                     if(err) throw err;
                     self.db = db;
-                    self.db.collection('contactspro').insert({"name":name, "title":ph_no},
+                     var document1 = {name:name, title:ph_no};
+  
+                    self.db.collection('contactspro').insert(document1,
                     function(err, doc)
                     { 
-                        docid+=doc._id;
+                        docid+=document1._id;
                         //docid1=doc.ph_no;
                         if (err)
                         {
