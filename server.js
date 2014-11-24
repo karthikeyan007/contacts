@@ -222,17 +222,17 @@ self.setupVariables = function()
                     {
                     if(err) throw err;
                     self.db = db;
-                    self.db.collection('contactspro').insert({"name":name, "title":ph_no},
+                    self.db.collection('contactspro').insert({"name":"1", "title":"2"},
                     function(err, doc)
-                    { 
-                        
-                        if (err)
-                        {
-                        console.dir(err); 
-                        return;
-                        }
-                   
-                    });
+                    {
+                     if (err)
+                    {
+                    console.dir(err); 
+                    return;
+                     }
+    
+                    console.log("Contacts Created!!!");
+                     });
                
                     });
                  //////
