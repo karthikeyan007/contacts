@@ -182,6 +182,7 @@ self.setupVariables = function()
                 {
                   a+=data;  
                   res.write("a"+a);
+                  
                 });
             res.on('end',
                 function(req,res)
