@@ -222,32 +222,29 @@ self.setupVariables = function()
                     {
                     if(err) throw err;
                     self.db = db;
-                     var document = {name:"David", title:"About MongoDB"};
+                     var document = {name:name, title:ph_no};
   
                     self.db.collection('contactspro').insert(document,{w: 1},
                     function(err,records)
                     { 
-                        docid=document1._id;
+                        docid=document._id;
                         docid1=records[0]._id;
                         res.write("document1._id"+records[0]._id);
                         // res.write("document1._id"+document._id);
                       
                         if (err)
                         {
-                            res.write("error");
-                        console.dir(err); 
-                        return;
+                          res.write("error");
+                          console.dir(err); 
+                          return;
                         }
                    
                     });
-                      res.write("insert");
-                       res.write("document1._id"+document1._id);
-                       res.write("doc_id"+docid);
-                       res.write("doc_id"+docid1);
+                      
                     });
                  
                        res.write("insert");
-                       res.write("document1._id"+document1._id);
+                       res.write("document1._id"+document._id);
                        res.write("doc_id"+docid);
                        //res.write("doc_id"+docid1);
                        res.end(out);
