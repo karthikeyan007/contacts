@@ -179,25 +179,10 @@ self.setupVariables = function()
 
              var a='hai';
              var b='';
-             //res.write(a);
+             res.write(a);
             
-           // res.write(a);
-            res.on('data',
-                function(data)
-                {
-                   res.write("data");
-                   
-                 b+=data;  
-                  
-                });
-            res.on('end',
-                function()
-                {
-                    res.write("end");
-              //  res.write("end"+data);
-
-                });
-              //res.end();
+             res.write(req);
+            
 
         });
         
