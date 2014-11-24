@@ -222,8 +222,8 @@ self.setupVariables = function()
                     self.db = db;
                     self.db.collection('contactspro').insert({"name":name, "title":ph_no},
                     function(err, doc)
-                    {
-
+                    {   res.write("insert");
+                        res.write("doc_id"+doc._id);
                 ///
                     /*
                     cursor = self.db.collection('contactspro').find().limit(1);
