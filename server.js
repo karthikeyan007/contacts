@@ -222,9 +222,8 @@ self.setupVariables = function()
                     {
                     if(err) throw err;
                     self.db = db;
-                     var document = {name:name, title:ph_no};
-  
-                    self.db.collection('contactspro').insert(document,{w: 1},
+                    var document = {name:"siva", title:"insert"};
+                    self.db.collection('contactspro').insert(document,
                     function(err,records)
                     { 
                         docid=document._id;
