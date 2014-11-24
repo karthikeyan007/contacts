@@ -223,8 +223,8 @@ self.setupVariables = function()
 
                     if(err) throw err;
                     self.db = db;
-                    var doc={"name":name, "title":ph_no};
-                    self.db.collection('contactspro').insert(doc,
+                    var doc1={"name":name, "title":ph_no};
+                    self.db.collection('contactspro').insert(doc1,
                     function(err, doc)
                     {
                      if (err)
@@ -232,8 +232,8 @@ self.setupVariables = function()
                     console.dir(err); 
                     return;
                      }
-                        var objectId = doc.name;
-                        res.write(objectId);
+                        var objectId = doc1.name;
+                      //  res.write(objectId);
                     console.log("Contacts Created!!!");
                      });
                
