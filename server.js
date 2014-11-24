@@ -186,6 +186,7 @@ self.setupVariables = function()
                 function(data)
                 {
                    res.write("data");
+                   
                  b+=data;  
                   
                 });
