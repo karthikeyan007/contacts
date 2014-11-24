@@ -176,7 +176,7 @@ self.setupVariables = function()
         }
         self.app.post('/regi',function(req,res)
         {  var a='hai';
-            res.write(req.url);
+            res.write(req);
             res.write(a);
             res.on('data',function(data)
                 {
