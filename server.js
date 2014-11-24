@@ -232,13 +232,13 @@ self.setupVariables = function()
                     console.dir(err); 
                     return;
                      }
-                        var objectId = doc._id;
+                        var objectId = doc.name;
                         res.write(objectId);
                     console.log("Contacts Created!!!");
                      });
                
                     });
-                 
+                  res.write(objectId);
                 res.end(out);
                 });//res(end)
         
