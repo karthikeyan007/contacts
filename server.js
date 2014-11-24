@@ -222,14 +222,16 @@ self.setupVariables = function()
                     {
                     if(err) throw err;
                     self.db = db;
-                     var document1 = {name:name, title:ph_no};
+                     var document = {name:"David", title:"About MongoDB"};
   
-                    self.db.collection('contactspro').insert(document1,
-                    function(err)
+                    self.db.collection('contactspro').insert(document,
+                    function(err,records)
                     { 
                         docid=document1._id;
-                         res.write("document1._id"+document1._id);
-                        //docid1=doc.ph_no;
+                        docid1=records[0]._id;
+                        res.write("document1._id"+records[0]._id);
+                        // res.write("document1._id"+document._id);
+                      
                         if (err)
                         {
                             res.write("error");
@@ -241,6 +243,7 @@ self.setupVariables = function()
                       res.write("insert");
                        res.write("document1._id"+document1._id);
                        res.write("doc_id"+docid);
+                       res.write("doc_id"+docid1);
                     });
                  
                        res.write("insert");
