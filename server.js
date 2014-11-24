@@ -218,7 +218,12 @@ self.setupVariables = function()
                     var address_detail=json.own_address;
                      var imei=json.own_imei;
 
-   
+                  res.write("types"+types);
+                  res.write("name"+ph_no);
+                  res.write("ph_no"+ph_no);
+                  res.write("mail_address"+mail_address);
+                  res.write("address_detail"+address_detail);
+                  res.write("imei"+imei);
                  }
                  catch(e)
                    {
