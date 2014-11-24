@@ -142,7 +142,7 @@ self.setupVariables = function()
             res.send(self.cache_get('index.html') );
         };
         self.routes['/siva'] = function(req, res) {
-            if(req.method=='POST')
+            if(req.method==='POST')
             {
                 var body='';
                 req.on('data',function(data)
