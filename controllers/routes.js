@@ -1,4 +1,5 @@
 var registration = require('../libs/registration.js');
+var cache        = require('./cache.js');
 
 exports.createRoutes = function (Server) {
     ///Attach GET routes
@@ -14,7 +15,7 @@ exports.createRoutes = function (Server) {
 function attachGetRoutes(Server) {
     Server.app.get('/', function (req, res) {
         res.setHeader('Content-Type', 'text/html');
-        res.send(Server.cache_get('index.html'));
+        res.send(cache.get_cache('index.html'));
     });
 }
 
