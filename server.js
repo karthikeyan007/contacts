@@ -71,14 +71,8 @@ var ContactsProApp = function () {
     self.initializeServer = function ()
     {
         self.app = express.createServer();
-        
-        //  Add handlers for the app (from the routes).
-        for (var r in self.get_routes) {
-            self.app.get(r, self.get_routes[r]);
-        }
-        for (var r in self.post_routes) {
-            self.app.get(r, self.post_routes[r]);
-        }
+
+        routes.createRoutes(self);
     };//initialize
 
     /**
@@ -93,8 +87,6 @@ var ContactsProApp = function () {
 
         // Initialize database
         database.initializeDB(self);
-
-        routes.createRoutes(self);
 
         // Create the express server and routes.
         self.initializeServer();
