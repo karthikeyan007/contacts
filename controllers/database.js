@@ -15,7 +15,6 @@ exports.initializeDB = function (Server) {
     }
     mongoClient.connect('mongodb://' + connection_string, function (err, db) {
         if (err) throw err;
-        mongoDB = db;
         Server.db = db; //Save DB in global context
     });
 }

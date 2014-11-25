@@ -9,7 +9,7 @@ exports.userRegistration = function(Server, data, res) {
         return;
     }
 
-    var db = database.mongoDB;
+    var db = Server.db;
     db.collection(database.collectionUsers).insert(data, function(err, document){
         if (err) {
             console.error(err);
