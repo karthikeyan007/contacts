@@ -16,6 +16,6 @@ exports.userRegistration = function(Server, data, res) {
             return;
         }
         res.header("Content-Type:","application/json");
-        res.end(JSON.stringify(docs));
+        res.end(JSON.stringify(document));
     });
 };

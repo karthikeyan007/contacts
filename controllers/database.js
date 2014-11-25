@@ -1,7 +1,6 @@
 var mongoClient = require('mongodb').MongoClient;
 
 exports.collectionUsers = 'Users';
-exports.mongoDB = null;
 
 exports.initializeDB = function (Server) {
     var connection_string = '127.0.0.1:27017/' + Server.APP_NAME;
