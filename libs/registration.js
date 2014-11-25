@@ -4,7 +4,7 @@ var database = require('../controllers/database.js');
 exports.userRegistration = function(Server, data, res) {
     if (data === undefined) {
         console.error('Registration information not supplied ' + data);
-        res.status(500).send('Invalid request sent'  +
+        res.status(500).send('Invalid request sent. '  +
                              'Please check your JSON data and try again');
         return;
     }

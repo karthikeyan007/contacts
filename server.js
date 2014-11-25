@@ -1,9 +1,10 @@
 #!/bin/env node
 
-var express  = require('express');
-var database = require('./controllers/database.js');
-var routes   = require('./controllers/routes.js');
-var cache    = require('./controllers/cache.js');
+var express    = require('express');
+var database   = require('./controllers/database.js');
+var routes     = require('./controllers/routes.js');
+var cache      = require('./controllers/cache.js');
+var bodyParser = require('body-parser');
 
 /**
  *  Define the ContactsPro application.
@@ -79,6 +80,8 @@ var ContactsProApp = function () {
 
         // Create the express server and routes.
         self.app = express();
+        self.app.use(bodyParser.json());
+        self.app.use(bodyParser.urlencoded({ extended: true })); 
         routes.createRoutes(self);
     };
 
