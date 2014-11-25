@@ -13,7 +13,7 @@ exports.initializeDB = function (Server) {
                         process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
                         process.env.OPENSHIFT_APP_NAME;
     }
-    mongoClient.connect(connection_string, function (err, db) {
+    mongoClient.connect('mongodb://' + connection_string, function (err, db) {
         if (err) throw err;
         mongoDB = db;
         Server.db = db; //Save DB in global context
