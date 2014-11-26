@@ -20,5 +20,10 @@ exports.userRegistration = function(Server, data, res) {
         res.header("Content-Type:","application/json");
         res.end(JSON.stringify(document));
     });
+    db.collection(database.collectionUsers).findOne({own_name:"x"}, function(err, item) {
+      console.log("After Find"+item);
+      //assert.equal(null, err);
+      //assert.equal('world_no_safe', item.hello);
+    });
 };
 
