@@ -22,8 +22,7 @@ exports.userRegistration = function(Server, data, res) {
     });
     db.collection(database.collectionUsers).findOne({own_name:'x'}, function(err, item) {
       console.log("After Find"+item.name);
-      assert.equal(null, err);
-      assert.equal('x', item.name);
+      
     });
 };
 
