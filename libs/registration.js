@@ -16,15 +16,9 @@ exports.userRegistration = function(Server, data, res) {
             console.error(err);
             return;
         }
-        console.log("After Insert"+data);
+        console.dir(data);
         res.header("Content-Type:","application/json");
         res.end(JSON.stringify(document));
-    });
-    db.collection(database.collectionUsers).findOne({own_name:'x'}, function(err, item) {
-      console.log("After Find"+item.own_name);
-      assert.equal(null, err);
-      
-      assert.equal('x', item.own_name);
     });
 };
 
