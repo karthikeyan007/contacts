@@ -89,7 +89,7 @@ var ContactsProApp = function () {
      *  Start the server (starts up the sample application).
      */
     self.start = function ()
-    {
+    {   console.log("Node server started");
         //  Start the app on the specific interface (and port).
         self.app.listen(self.port, self.ipaddress, function ()
         {

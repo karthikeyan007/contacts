@@ -21,6 +21,7 @@ function attachGetRoutes(Server) {
 
 function attachPostRoutes(Server) {
     Server.app.post('/registration', function (req, res) {
+        console.log("/registration");
         registration.userRegistration(Server, req.body, res);
     });
 }

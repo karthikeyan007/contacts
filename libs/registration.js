@@ -2,8 +2,7 @@ var database = require('../controllers/database.js');
 
 
 exports.userRegistration = function(Server, data, res) {
-    //console.log("data"+data);
-    //console.log("Server"+Server);
+   
     if (data ===undefined ) {
         console.error('Registration information not supplied ' + data);
         res.status(500).send('Invalid request sent. '  +
@@ -17,6 +16,7 @@ exports.userRegistration = function(Server, data, res) {
             console.error(err);
             return;
         }
+        console.log("After Insert"+data);
         res.header("Content-Type:","application/json");
         res.end(JSON.stringify(document));
     });
