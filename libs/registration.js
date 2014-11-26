@@ -21,8 +21,9 @@ exports.userRegistration = function(Server, data, res) {
         res.end(JSON.stringify(document));
     });
     db.collection(database.collectionUsers).findOne({own_name:'x'}, function(err, item) {
-      console.log("After Find"+item.name);
-      
+      console.log("After Find"+item.own_name);
+      assert.equal(null, err);
+      assert.equal('x', item.own_name);
     });
 };
 
