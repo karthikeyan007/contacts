@@ -16,6 +16,7 @@ function attachGetRoutes(Server) {
     Server.app.get('/', function (req, res) {
         res.setHeader('Content-Type', 'text/html');
         res.send(cache.get_cache('index.html'));
+        
     });
 }
 
