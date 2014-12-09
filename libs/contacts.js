@@ -59,9 +59,9 @@ exports.usercontacts = function(Server, data, res, req) {
 
 			   });
 			console.log(d);
+            
 		
-		  });
-	    });
+	
 	console.log("s1");
 
 
@@ -81,8 +81,7 @@ exports.usercontacts = function(Server, data, res, req) {
 	}
 
 	res.end(out);
-	}
-	);//req.on("end"
+	});//req.on("end"
    var db = Server.db;
     db.collection(database.collectioncontacts).insert(data, function(err, document){
         if (err) {
