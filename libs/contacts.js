@@ -1,4 +1,5 @@
-var database = require('../controllers/database.js');
+var registration = require('../libs/contacts.js');
+
 
 
 exports.usercontacts = function(Server, data, res, req) {
