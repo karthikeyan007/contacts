@@ -9,7 +9,7 @@ exports.usercontacts = function(Server, data, res, req) {
                              'Please check your JSON data and try again');
         return;
     }
-    var jsondata="";
+    /*var jsondata="";
 	req.on("readable",function()
 	{
 		var d=req.read();
@@ -92,10 +92,10 @@ exports.usercontacts = function(Server, data, res, req) {
         if (err) {
             console.error(err);
             return;
-        }
+        }*/
        
        console.dir(data);
         res.header("Content-Type:","application/json");
         res.end(JSON.stringify(document));
-    });
+
 };
