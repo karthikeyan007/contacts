@@ -1,4 +1,4 @@
-var database   = require('../controllers/database.js');
+var database = require('../controllers/database.js');
 
 
 exports.userRegistration = function(Server, data, res) {
@@ -22,7 +22,7 @@ exports.userRegistration = function(Server, data, res) {
     });
 };
 //multiply 2 variables
-//exports.multiply = function (multiplier1, multiplier2) {
- //return 6;
-//};
+exports.multiply = function (multiplier1, multiplier2) {
+ return 6;
+};
 

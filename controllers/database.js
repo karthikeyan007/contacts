@@ -2,7 +2,7 @@ var mongoClient = require('mongodb').MongoClient;
 
 exports.collectionUsers = 'Users';
 exports.collectioncontacts = 'contacts';
-
+exports.multiply ='registration-spec';
 
 
 exports.initializeDB = function (Server) {
