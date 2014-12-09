@@ -1,4 +1,4 @@
-var database = require('../controllers/database.js');
+var database = require('../../libs/registration.js');
 
 
 exports.userRegistration = function(Server, data, res) {
