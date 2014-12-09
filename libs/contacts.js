@@ -1,4 +1,4 @@
-var database = require('../../libs/contacts.js');
+var database   = require('../controllers/database.js');
 
 
 exports.usercontacts = function(Server, data, res, req) {
