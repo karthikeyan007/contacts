@@ -1,4 +1,4 @@
-var database = require('../../libs/registration.js');
+//var database = require('../../libs/registration.js');
 
 describe("multiplication", function () {
   it("should multiply 2 and 3", function () {
