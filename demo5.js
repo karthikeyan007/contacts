@@ -1,16 +1,13 @@
 var http=require('http');
 var mongo = require('mongodb');
 var dateFormat = require('dateformat');
-var url = require("url");
 var mongoUri = 'mongodb://localhost/contactspro'; //Database connection
 function handle(req,res)
 {
-		 res.write("s1"+req.url); 
- 
 	var jsondata="";
-	req.on("data",function(data)
+	req.on("readable",function()
 	{
-		//var d=req.read();
+		var d=req.read();
 		if(typeof d=='string')
 		{
 			jsondata+=d;
@@ -18,9 +15,6 @@ function handle(req,res)
 		else if(typeof d=='object' && d instanceof Buffer){
 			jsondata+=d;
 		}
-		jsondata+=data;
-		res.write("siva");
-		res.write(data);
 	});//req.on("readable
 
 
@@ -28,9 +22,9 @@ function handle(req,res)
 	{
 	var out='';
 	if(!jsondata)
-	{
-		out="i got no json data";
-	}
+	  {
+		out="i got no form data";
+	  }
 	else
 	{
 		var json;
@@ -68,19 +62,11 @@ var d='Hello World';
 				  { console.log("null"+doc);
 				  }
 
-			 });
+			   });
 			console.log(d);
-		//console.log("cur:"+cursor);
-		/*
-		if(e)
-		{ console.log("error"+e);
-
-		 }
-		else
-		{ console.log("Inserted"); }
-		*/
-		});
-	 });
+		
+		  });
+	    });
 	console.log("s1");
 
 
