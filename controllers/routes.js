@@ -1,6 +1,6 @@
 var registration = require('../libs/registration.js');
 var contacts     = require('../libs/contacts.js');
-var database = require('../libs/registration.js');
+
 var cache        = require('./cache.js');
 
 exports.createRoutes = function (Server) {
@@ -10,7 +10,7 @@ exports.createRoutes = function (Server) {
     ///Attach POST routes
     attachPostRoutes(Server);
     attachPostRoutes1(Server);
-    attachPostRoutes2(Server);
+   
   
     
 
@@ -38,10 +38,5 @@ function attachPostRoutes1(Server) {
        contacts.usercontacts(Server, req.body, res);
     });
 }
-function attachPostRoutes2(Server) {
-    Server.app.post('/registration-spec', function (req, res) {
-        console.dir(req.body);
-       registration-spec.multiply(Server, req.body, res);
-    });
-}
+
 
