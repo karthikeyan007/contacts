@@ -37,11 +37,16 @@ exports.usercontacts = function(Server, data, res, req) {
 		{
 			json=JSON.parse(jsondata);
 			var types=json.types;
-			var name=json.own_name;
-			var ph_no=json.own_no;
-			var mail_address=json.own_email;
-			var address_detail=json.own_address;
-			var imei=json.own_imei;
+			var name=json.name;
+			var ph_no=json.ph_no;
+                        var mail_type =json.mail_type;
+			var mail_address=json.mail_address;
+                        var address_type=json.address_type;
+			var address_detail=json.address_detail;
+                        var url_type=json.url_type;
+                        var url_detail=json.url_detail;
+                        var im_type=json.im_type;
+                        var im_detail=json.im_detail;
 
 			
 				
